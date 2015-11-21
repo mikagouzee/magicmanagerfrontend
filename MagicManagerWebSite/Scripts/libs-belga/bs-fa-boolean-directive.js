@@ -1,0 +1,4 @@
+﻿function bsfaBoolean(o) { var e = { restrict: "E", scope: { value: "=" }, controller: "bsfaBooleanController", controllerAs: "bsfaBoolean", bindToController: !0, template: o.get("bs-fa-boolean.view.html") }; return e } function bsfaBooleanController() { } angular.module("bsfaBoolean.directive", ["bsfaBoolean.controller", "bs-fa-boolean.template"]).directive("bsfaboolean", bsfaBoolean), bsfaBoolean.$inject = ["$templateCache"], angular.module("bsfaBoolean.controller", []).controller("bsfaBooleanController", bsfaBooleanController), angular.module("bs-fa-boolean.template", []).run(["$templateCache", function (o) { o.put("bs-fa-boolean.view.html", '<i class="fa fa-check text-success" ng-if="bsfaBoolean.value"></i>\n<i class="fa fa-times text-danger" ng-if="!bsfaBoolean.value"></i>') }]);
+
+// https://github.com/belgac/bs-fa-boolean-directive/blob/master/README.md 
+//# sourceMappingURL=bs-fa-boolean-directive.min.js.map
