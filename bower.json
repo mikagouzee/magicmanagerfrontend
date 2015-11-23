@@ -38,5 +38,20 @@
   },
   "resolutions": {
     "font-awesome": "~4.4.0"
+  },
+  "overrides": {
+    "bootstrap":{
+      "main": [
+        "dist/css/bootstrap.css",
+        "assets/javascripts/bootstrap.js",
+        "dist/fonts/**/*"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css",
+        "fonts/**/*"
+      ]
+    }
   }
 }
