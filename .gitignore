@@ -198,4 +198,5 @@ FakesAssemblies/
 # build folders
 
 MagicManagerWebSite/App
+MagicManagerWebSite/Scripts
 MagicManagerWebSite/index.html
