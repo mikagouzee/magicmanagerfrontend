@@ -11,6 +11,7 @@ var bytediff = require('gulp-bytediff');
 var uglify = require('gulp-uglify');
 var bowerFiles = require('main-bower-files');
 var gulpFilter = require('gulp-filter');
+var rev = require('gulp-rev');
 
 gulp.task('minify',function(callback){
   runSequence(['minify:app','minify:bower'],callback)
@@ -30,6 +31,7 @@ gulp.task('minify:app',function(){
     .pipe(bytediff.start())
     .pipe(uglify({mangle: true}))
     .pipe(bytediff.stop())
+    .pipe(rev())
     .pipe(sourcemaps.write('./'))
     .pipe(
       gulp.dest('./MagicManagerWebSite/App')
@@ -49,6 +51,7 @@ gulp.task('minify:bower',function(){
     .pipe(bytediff.start())
     .pipe(uglify({mangle: true}))
     .pipe(bytediff.stop())
+    .pipe(rev())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./MagicManagerWebSite/Scripts'));
 });

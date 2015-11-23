@@ -26,7 +26,7 @@ gulp.task('concat:css:app',function(){
    return gulp.src('./MagicManagerWebSite/src/Content/**/*.css')
     .pipe(sourcemaps.init())
     .pipe(concat('app.css'))
-     .pipe(rev())
+    .pipe(rev())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./MagicManagerWebSite/Content'));
 })
@@ -49,6 +49,7 @@ gulp.task('concat:js:bower',function(){
     .pipe(sourcemaps.init())
     .pipe(angularFilesort())
     .pipe(concat('vendor.js'))
+    .pipe(rev())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./MagicManagerWebSite/Scripts'));
 });
@@ -61,6 +62,7 @@ gulp.task('concat:js:app',function(){
     .pipe(ngAnnotate({
       add: true
     }))
+    .pipe(rev())
     .pipe(sourcemaps.write('./'))
     .pipe(
       gulp.dest('./MagicManagerWebSite/App')
