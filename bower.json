@@ -33,6 +33,10 @@
     "key-value-tables-directive": "~1.0.0",
     "cms-element-builder-directive": "~1.0.0",
     "product-profile-cms-elements": "~1.0.0",
-    "toggle-icon-button-directive": "~1.0.0"
+    "toggle-icon-button-directive": "~1.0.0",
+    "font-awesome": "~4.5.0"
+  },
+  "resolutions": {
+    "font-awesome": "~4.4.0"
   }
 }

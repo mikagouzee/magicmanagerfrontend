@@ -6,5 +6,5 @@ gulp.task('build:dev',function(callback){
 });
 
 gulp.task('build:dist',function(callback){
-  runSequence('delete','minify','inject',callback) 
+  runSequence('delete',['minify','concat:css'],'inject',callback) 
 });
