@@ -8,7 +8,8 @@
         "magicManagerApp.routes",
         "magicManagerApp.home",
         "magicManagerApp.dashboard",
-        "magicManagerApp.cardDetail"
+        "magicManagerApp.cardDetail",
+        'magicManagerApp.templates'
 
         // 3rd Party Modules
         
