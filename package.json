@@ -28,6 +28,7 @@
   "devDependencies": {
     "cz-conventional-changelog": "^1.1.4",
     "gulp": "^3.9.0",
+    "gulp-talk2me": "^1.0.2",
     "require-dir": "^0.3.0"
   },
   "config": {
