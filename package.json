@@ -11,19 +11,24 @@
     "url": "git+https://github.com/mikagouzee/magicmanagerfrontend.git"
   },
   "author": "Michel Gouzee",
-  "contributors": [{
-    "name": "Hans Scheuren",
-    "email": "hans.scheuren@bizliner.com"
-  }, {
-    "name": "Barnabé Magos"
-  }],
+  "contributors": [
+    {
+      "name": "Hans Scheuren",
+      "email": "hans.scheuren@bizliner.com"
+    },
+    {
+      "name": "Barnabé Magos"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mikagouzee/magicmanagerfrontend/issues"
   },
   "homepage": "https://github.com/mikagouzee/magicmanagerfrontend#readme",
   "devDependencies": {
-    "cz-conventional-changelog": "^1.1.4"
+    "cz-conventional-changelog": "^1.1.4",
+    "gulp": "^3.9.0",
+    "require-dir": "^0.3.0"
   },
   "config": {
     "commitizen": {
