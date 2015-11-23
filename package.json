@@ -1,0 +1,33 @@
+{
+  "name": "magicmanagerfrontend",
+  "version": "1.0.0",
+  "description": "Front end of the magic manager project",
+  "main": "Gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikagouzee/magicmanagerfrontend.git"
+  },
+  "author": "Michel Gouzee",
+  "contributors": [{
+    "name": "Hans Scheuren",
+    "email": "hans.scheuren@bizliner.com"
+  }, {
+    "name": "Barnabé Magos"
+  }],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikagouzee/magicmanagerfrontend/issues"
+  },
+  "homepage": "https://github.com/mikagouzee/magicmanagerfrontend#readme",
+  "devDependencies": {
+    "cz-conventional-changelog": "^1.1.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
