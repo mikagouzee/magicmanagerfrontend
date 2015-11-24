@@ -4,7 +4,7 @@
         "magicManagerApp.cardDetailElement.factory",
         "ui.router",
         "cmselementBuilder.directive",
-        "product-tiret-profile-cms-elements.template",
+        "product-profile-cms-elements.template",
         "keyvaluetables.directive",
         "toggleIconButton.directive",
         //add cmselements
