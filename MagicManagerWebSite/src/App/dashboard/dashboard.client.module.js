@@ -1,4 +1,4 @@
 ﻿angular.module(
-    "magicManagerApp.dashboard"
+    "magicManagerApp.dashboard",
     ["magicManagerApp.routes"]
     );
