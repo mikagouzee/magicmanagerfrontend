@@ -47,7 +47,6 @@ gulp.task('concat:js:bower',function(){
   return gulp.src(bowerFiles())
     .pipe(jsFilter)
     .pipe(sourcemaps.init())
-    .pipe(angularFilesort())
     .pipe(concat('vendor.js'))
     .pipe(rev())
     .pipe(sourcemaps.write('./'))
