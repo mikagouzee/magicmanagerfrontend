@@ -2,14 +2,14 @@ var gulp = require('gulp');
 var inject = require('gulp-inject');
 
 gulp.task('csproj',function(){
-  return gulp.src('MagicManagerWebSite/src/MagicManagerWebSite.csproj')
+  return gulp.src('MagicManagerWebSite/MagicManagerWebSite.csproj')
     .pipe(inject(
       gulp.src(['MagicManagerWebSite/App/**/*','MagicManagerWebSite/Scripts/**/*','MagicManagerWebSite/fonts/**/*','MagicManagerWebSite/Content/**/*','MagicManagerWebSite/src/**/*']),
       {
         starttag: '<!-- gulpinject -->',
         endtag: '<!-- endgulpinject -->',
      		transform: function (filepath) {
-          filepath = filepath.replace("/MagicManagerWebSite/", "").replace('/','\\');  
+          filepath = filepath.replace("/MagicManagerWebSite/", "").replace(/\//g,'\\');  
         	return '<Content Include="' + filepath + '"/>';
       	}
     	}))
