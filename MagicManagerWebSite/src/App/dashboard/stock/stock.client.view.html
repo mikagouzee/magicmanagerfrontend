@@ -1,17 +1,13 @@
-﻿<div class="container">
-    <h1>Stock</h1>
-    <h2>Détails du stock</h2>
+<div class="container">
+    <h1>Vue Stock</h1>
     <div class="row">
         <div class="col-xs-12">
-            <!--add d3 graph-->
+            <nvd3 options="dashboardStock.chart.options" data="dashboardStock.chart.data" ng-class="dashboardStock.chart.class"></nvd3>
         </div>
     </div>
+    <h2>Détails du stock</h2>
     <div class="row">
-        <div class="col-xs-12 col-md-6" ng-include="'App/dashboard/partial/toolbar.client.view.html'">
-
-        </div>
-        <div class="col-xs-12 col-md-6" ng-include="'App/dashboard/partial/search.client.view.html'">
-        </div>
+        <!--insert toolbar-->
     </div>
     <div class="row">
         <div class="col-xs-12">

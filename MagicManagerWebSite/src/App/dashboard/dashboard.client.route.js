@@ -2,6 +2,9 @@ angular.module(
   'magicManagerApp.dashboard.routes',
   [
     'magicManagerApp.templates',
+    'magicManagerApp.dashboard.overview.controller',
+    'magicManagerApp.dashboard.market.controller',
+    'magicManagerApp.dashboard.stock.controller',
     'ui.router'
   ]
 )
@@ -24,7 +27,9 @@ function dashboardRoute($stateProvider) {
           url: '/overview', 
           templateProvider: function($templateCache){
             return $templateCache.get('dashboard/overview/overview.client.view.html');
-          }
+          },
+          controller:'dashboardOverviewController',
+          controllerAs:'dashboardOverview'
         }
       )
       .state(
@@ -33,7 +38,9 @@ function dashboardRoute($stateProvider) {
           url: '/market', 
           templateProvider: function($templateCache){
             return $templateCache.get('dashboard/market/market.client.view.html');
-         }
+          },
+          controller:'dashboardMarketController',
+          controllerAs:'dashboardMarket'
         }
       )
       .state(
@@ -42,7 +49,9 @@ function dashboardRoute($stateProvider) {
           url: '/stock', 
           templateProvider: function($templateCache){
             return $templateCache.get('dashboard/stock/stock.client.view.html');
-          }
+          },
+          controller:'dashboardStockController',
+          controllerAs:'dashboardStock'
         }
       )
       .state(
