@@ -1,4 +1,6 @@
-﻿angular.module(
+angular.module(
 	"magicManagerApp.home",
-	["magicManagerApp.home.routes"]
-	)
+	[
+    "magicManagerApp.home.routes"
+  ]
+)
