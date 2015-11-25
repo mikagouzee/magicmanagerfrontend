@@ -1,0 +1,57 @@
+{
+  "name": "magicmanagerfrontend",
+  "description": "Front end of the magic manager project",
+  "main": "Gulpfile.js",
+  "authors": [
+    {
+      "name": "Michel Gouzee"
+    },
+    {
+      "name": "Hans Scheuren",
+      "email": "hans.scheuren@bizliner.com"
+    },
+    {
+      "name": "Barnabé Magos"
+    }
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/mikagouzee/magicmanagerfrontend",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.5",
+    "angular-nvd3": "~1.0.3",
+    "bs-fa-boolean-directive": "~1.0.1",
+    "key-value-tables-directive": "~1.0.0",
+    "cms-element-builder-directive": "~1.0.1",
+    "product-profile-cms-elements": "~1.0.1",
+    "toggle-icon-button-directive": "~1.0.1",
+    "font-awesome": "~4.5.0"
+  },
+  "resolutions": {
+    "font-awesome": "~4.4.0"
+  },
+  "overrides": {
+    "bootstrap":{
+      "main": [
+        "dist/css/bootstrap.css",
+        "assets/javascripts/bootstrap.js",
+        "dist/fonts/**/*"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css",
+        "fonts/**/*"
+      ]
+    }
+  }
+}
