@@ -8,11 +8,11 @@ angular.module(
 function chartsFactory () {
   var factory = {};
   
-  factory.getDefaultChart = getDefaultChart;
+  factory.getChartDefaults = getChartDefaults;
   
   return factory;
   
-  function getDefaultChart () {
+  function getChartDefaults () {
     var chartData = {};
     chartData.chartOptions = {
       chart: {
