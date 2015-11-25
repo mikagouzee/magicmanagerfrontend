@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="magicManagerApp">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="content-type" content="text/html; charset:UTF8">
@@ -13,7 +13,12 @@
   <!-- inject:css -->
   <!-- endinject -->
 </head>
-<body ng-app="magicManagerApp">
+<body  ng-cloak>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top" ng-include="'partials/navbar.client.view.html'"></nav>
+
+  <div ui-view></div>
+  
   <!-- inject:js -->
   <!-- endinject -->
 </body>
