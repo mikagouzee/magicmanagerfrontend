@@ -54,7 +54,7 @@ gulp.task('concat:js:bower',function(){
 });
 
 gulp.task('concat:js:app',function(){
-  return series(genTemplateStream(),gulp.src('./MagicManagerWebSite/src/App/**/*.js'))
+  return series(templateStream(),gulp.src('./MagicManagerWebSite/src/App/**/*.js'))
     .pipe(sourcemaps.init())
     .pipe(angularFilesort())
     .pipe(concat('App.js', {newLine: ';\n'}))
@@ -67,9 +67,4 @@ gulp.task('concat:js:app',function(){
       gulp.dest('./MagicManagerWebSite/App')
     )
 });
-
-function genTemplateStream () {
-  return gulp.src(['src/**/*.view.html'])
-  .pipe(templateCache({standalone:true,module:'toggleIconButton.template'}));
-}
 
