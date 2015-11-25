@@ -42,6 +42,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-talk2me": "^1.0.2",
     "gulp-uglify": "^1.5.1",
+    "inquirer": "^0.11.0",
     "main-bower-files": "^2.9.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",
