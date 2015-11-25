@@ -12,7 +12,36 @@
     <div class="row">
         <div class="col-xs-12" >
             <!--Add ui grid-->
-
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                   <tr>
+                     <th>Nom</th>
+                     <th>Sell</th>
+                     <th>Average</th>
+                     <th>Low</th>
+                     <th>Nombre</th>
+                     <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="productDetail in dashboardMarket.marketDetails">
+                    <td>{{productDetail.name}}</td>
+                    <td>{{productDetail.sell | currency:"&euro;"}}</td>
+                    <td>{{productDetail.average | currency:"&euro;"}}</td>
+                    <td>{{productDetail.low | currency:"&euro;"}}</td>
+                    <td>{{productDetail.siteWideCount}}</td>
+                    <td>
+                      <a ui-sref="cardDetail({articleId:productDetail.id})" class="btn btn-success">
+                        <i class="fa fa-play"></i>
+                        <span class="hidden-xs">
+                          Voir le détail de la carte
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
         </div>
     </div>
 </div>

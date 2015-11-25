@@ -7,6 +7,7 @@ function marketFactory () {
   var factory = {};
   
   factory.getMarketInfo = getMarketInfo;
+  factory.getMarketDetails = getMarketDetails;
   
   return factory;
   
@@ -51,7 +52,29 @@ function marketFactory () {
     ];
     
     return marketInfo;
-  }
+  };
+  
+  function getMarketDetails () {
+      var marketDetails = [
+        {
+          id:1,
+          name:'test card 1',
+          average: getRandomArbitrary(100, 200),
+          sell: getRandomArbitrary(100, 200),
+          low: getRandomArbitrary(100, 200),
+          siteWideCount:getRandomArbitrary(1000, 4000)
+        },
+        {
+          id:2,
+          name:'test card 2',
+          average: getRandomArbitrary(100, 200),
+          sell: getRandomArbitrary(100, 200),
+          low: getRandomArbitrary(100, 200),
+          siteWideCount:getRandomArbitrary(1000, 4000)
+        }
+      ];
+      return marketDetails;
+    };
   
   function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
