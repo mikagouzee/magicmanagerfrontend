@@ -1,10 +1,9 @@
-var gulp = require('gulp'),
-  connect = require('gulp-connect');
+var gulp = require('gulp');
+var inquirer = require('inquirer');
+var server = require('../../serve/dev.js');
+
+
 
 gulp.task('webserver', function() {
-  connect.server({
-     port: 3000,
-      host: '0.0.0.0',
-      root: './MagicManagerWebSite'
-  });
+  server();
 });

@@ -203,3 +203,4 @@ MagicManagerWebSite/Content
 MagicManagerWebSite/fonts
 MagicManagerWebSite/index.html
 MagicManagerWebSite/MagicManagerWebSite.csproj
+config/config.json
