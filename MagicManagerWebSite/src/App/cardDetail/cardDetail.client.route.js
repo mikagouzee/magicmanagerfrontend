@@ -1,16 +1,22 @@
-﻿angular.module(
-    "magicManagerApp.cardDetail.routes",
-    ["magicManagerApp.cardDetail.controller",
-        "ui.router"]
-    ).config(cardDetailRoute);
+angular.module(
+   'magicManagerApp.cardDetail.routes',
+  [
+    'magicManagerApp.cardDetail.controller',
+    'ui.router'
+  ]
+)
+  .config(cardDetailRoute);
 
-//todo : add templates when location find
 function cardDetailRoute($stateProvider) {
-    $stateProvider.state(
-        "cardDetail",
-        {
-            url: "/cardDetail/:articleId", templateUrl: "",
-            controller: "cardDetailController", controllerAs: "cardDetail"
-        }
-        )
+  $stateProvider.state(
+    'cardDetail',
+    {
+      url: '/cardDetail/:articleId',
+      templateProvider: function($templateCache){
+            return $templateCache.get('cardDetail/cardDetail.client.view.html');
+      },
+      controller: 'cardDetailController',
+      controllerAs: 'cardDetail'
+    }
+  )
 }

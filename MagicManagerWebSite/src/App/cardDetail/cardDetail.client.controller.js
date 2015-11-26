@@ -1,33 +1,55 @@
-﻿angular.module(
-    "magicManagerApp.cardDetail.controller",
-    ["magicManagerApp.productInfo.factory",
-        "magicManagerApp.cardDetailElement.factory",
-        "ui.router",
-        "cmselementBuilder.directive",
-        "product-profile-cms-elements.template",
-        "keyvaluetables.directive",
-        "toggleIconButton.directive",
-        //add cmselements
+angular.module(
+    'magicManagerApp.cardDetail.controller',
+    [
+      'magicManagerApp.productInfo.factory',
+      'magicManagerApp.cardDetail.chart.factory',
+      'magicManagerApp.keyValueTableModels.factory',
+      'magicManagerApp.charts.factory',
+      'ui.router',
+      'keyvaluetables.directive',
+      'chartSerialize.factory'
     ]
-    ).controller(
-    "cardDetailController",
-    cardDetailController
-    );
+)
+   .controller(
+     'cardDetailController',
+     cardDetailController
+   );
 
-function cardDetailController($stateParams, cardDetailElementFactory, productInfoFactory) {
+function cardDetailController($stateParams, chartsFactory, productInfoFactory, keyValueTableModelsFactory, chartSerializeFactory, cardDetailChartFactory) {
     var vm = this;
 
     init();
 
     function init() {
-        vm.articleId = $stateParams.articleId;
-        productInfoFactory.getProductInfo(vm.articleId).then(setProductInfo(response));
-        vm.element = cardDetailElementFactory.getProfile(vm.articleId, vm.productInfo);
-    }
+      var chartDefaults = chartsFactory.getChartDefaults();
+        productInfoFactory.getProductInfo($stateParams.articleId)
+          .then(
+            function(response){
+              setProductInfo(response,chartDefaults)
+            }
+          );
+      
+    };
 
-    function setProductInfo(response) {
-        if (response[0]) {
+    function setProductInfo(response,chartDefaults) {
+        if (!response[0]) {
             vm.productInfo = response[1];
+            console.log(cardDetailChartFactory.getXField)
+            var chartData = chartSerializeFactory.serialize(vm.productInfo.dailyPrices,cardDetailChartFactory.getXField(),cardDetailChartFactory.getYFields());
+            vm.chart = {data: chartData,options: chartDefaults.chartOptions, class:chartDefaults.chartClass};
+            vm.techSheetTables = [];
+            keyValueTableModelsFactory.getModel('flags').then(function(flags){
+              if (flags){
+                flags.order = 1;
+                vm.techSheetTables.push(flags)
+              };
+            })
+            keyValueTableModelsFactory.getModel('details').then(function(details){
+              if (details){
+                details.order = 2;
+                vm.techSheetTables.push(details)
+              };
+            })
         };
     }
 }

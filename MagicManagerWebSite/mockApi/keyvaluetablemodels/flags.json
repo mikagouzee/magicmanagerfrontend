@@ -1,0 +1,29 @@
+{"direction":"horizontal",
+"model":[
+    {
+      "label":"Foil",
+      "key":"article.isFoil",
+      "type":"boolean"
+    },
+     {
+        "label":"Signed",
+        "key":"article.isSigned",
+      "type":"boolean"
+      },
+      {
+        "label":"Altered",
+        "key":"article.isAltered",
+      "type":"boolean"
+      },
+      {
+        "label":"Playset",
+        "key":"article.isPlayset",
+     "type":"boolean"
+      },
+      {
+        "label":"First Edition",
+        "key":"article.isFirstEd",
+      "type":"boolean"
+      }
+    ]
+}

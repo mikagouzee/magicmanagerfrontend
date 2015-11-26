@@ -1,0 +1,38 @@
+{"direction":"vertical",
+"model":[      {
+        "label":"Langue",
+        "key": "article.languageId"
+      },
+      {
+        "label":"Rareté",
+        "key": "product.rarity"
+      },
+      {
+        "label":"Nombre sur le site",
+        "key": "article.siteWideCount"
+      },
+      {
+        "label":"Prix de votre stock",
+        "key":"actualPrice.price",
+        "type":"number",
+        "subtype":"currency"
+      },
+      {
+        "label":"Prix Sell",
+        "key":"actualPrice.sell",
+        "type":"number",
+        "subtype":"currency"
+      },
+      {
+        "label":"Prix Low",
+        "key":"actualPrice.low",
+        "type":"number",
+        "subtype":"currency"
+      },
+      {
+        "label":"Prix Average",
+        "key":"actualPrice.average",
+        "type":"number",
+        "subtype":"currency"
+      }
+ ]}

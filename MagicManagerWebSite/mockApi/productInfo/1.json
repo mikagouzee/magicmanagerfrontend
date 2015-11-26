@@ -1,0 +1,68 @@
+{
+      "articleId": 1,
+      "article": {
+        "languageId": "fr",
+        "isFoil": true,
+        "isSigned": false,
+        "isAltered": false,
+        "isPlayset": false,
+        "isFirstEd": false,
+        "siteWideCount": 1589
+      },
+     "product": {
+        "productName": "dummy product",
+        "productUrl": "https://www.magiccardmarket.eu/Products/Singles/Commander+2015/Grasp+of+Fate",
+        "imageUrl": "http://placehold.it/251x366?text=card-image",
+        "rarity": "rare"
+      },
+      "dailyPrices": [{
+        "count": 5,
+        "price": 112,
+        "sell": 154,
+        "low": 112,
+        "average": 158,
+        "workerEditTime": 1000000000
+      }, {
+        "count": 6,
+        "price": 124,
+        "sell": 158,
+        "low": 112,
+        "average": 158,
+        "workerEditTime": 2000000000
+      }, {
+        "count": 6,
+        "price": 102,
+        "sell": 122,
+        "low": 112,
+        "average": 158,
+        "workerEditTime": 3000000000
+      }, {
+        "count": 6,
+        "price": 189,
+        "sell": 112,
+        "low": 112,
+        "average": 158,
+        "workerEditTime": 4000000000
+      }, {
+        "count": 6,
+        "price": 167,
+        "sell": 178,
+        "low": 112,
+        "average": 158,
+        "workerEditTime": 5000000000
+      }, {
+        "count": 6,
+        "price": 124,
+       "sell": 158,
+        "low": 112,
+        "average": 158,
+        "workerEditTime": 6000000000
+      }, {
+        "count": 6,
+        "price": 124,
+        "sell": 152,
+        "low": 112,
+        "average": 158,
+        "workerEditTime": 7000000000
+      }]
+    }
