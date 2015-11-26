@@ -1,10 +1,13 @@
 ﻿angular.module(
-    "magicManagerApp.productInfo.factory",
-    []
-    ).factory(
-    "productInfoFactory",
-    productInfoFactory
-    )
+   "magicManagerApp.productInfo.factory",
+   [
+     
+   ]
+ )
+   .factory(
+   "productInfoFactory",
+   productInfoFactory
+ )
 
 function productInfoFactory($http, $q) {
     var factory = {};
@@ -17,19 +20,19 @@ function productInfoFactory($http, $q) {
         var productInfo = {};
 
         //todo : insert api call
-        $http.get("/someUrl").then(successCallback, errorCallback);
+        $http.get('/mockApi/productInfo/'+articleId+'.json').then(successCallback, errorCallback);
         function successCallback(response) {
-            productInfo = [false, response];
+            productInfo = [false, response.data];
 
-            productInfo.actualPrice = productInfo.dailyPrice[0];
-            defered.resolve(productInfo);
+            productInfo[1].actualPrice = response.data.dailyPrices[0];
+            deferred.resolve(productInfo);
         };
         function errorCallback(response) {
             productInfo = ["an error occurred : get", response];
-            defered.reject(productInfo);
+            deferred.reject(productInfo);
         };
         
-        return defered.promise;
+        return deferred.promise;
     }
 
     function getProducts() { };

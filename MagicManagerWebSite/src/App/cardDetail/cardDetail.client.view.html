@@ -1,5 +1,66 @@
-﻿<div class="container">
-<cmselementbuilder elements="cardDetail.elements" viewextension=".view.html">
-
-</cmselementbuilder>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Détail de la carte {{cardDetail.productInfo.product.productName}}</h1>
+    </div>
+    <div class="col-xs-12">
+      <p><small>Dernière mise à jour le {{cardDetail.productInfo.actualPrice.workerEditTime | date:'dd-MM-yyyy à HH:mm'}}</small></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-md-3">
+      <div class="row">
+        <div class="col-xs-12">
+          <img ng-src="{{cardDetail.productInfo.product.imageUrl}}" alt="carte magic {{cardDetail.productInfo.product.productName}}" class="img-responsive center-block">
+        </div>
+        <div class="col-xs-12 text-center">
+            <span ng-class="'flag-icon-' +  cardDetail.productInfo.article.languageId" class="flag-icon"></span>
+        </div>
+        <div class="col-xs-12">
+          <a class="btn btn-info btn-block" ng-href="{{cardDetail.productInfo.product.productUrl}}" ng-attr-target="_blank">
+            <i class="fa fa-globe"></i> Voir sur MKM
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-8 col-md-9 text-center">
+        <h2>Fiche technique</h2>
+        <keyvaluetables datatoparse="cardDetail.productInfo" tables="cardDetail.techSheetTables"></keyvaluetables>
+    </div>
+  </div>
+  <hr/>
+  <h2>Evolution des prix</h2>
+  <div class="row">
+    <div class="col-xs-12">
+      <nvd3 options="cardDetail.chart.options" data="cardDetail.chart.data" ng-class="cardDetail.chart.class"></nvd3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Stock Count</th>
+              <th>Stock Price: </th>
+              <th>Sell Price: </th>
+              <th>Low Price: </th>
+              <th>Average Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="datePrice in cardDetail.productInfo.dailyPrices">
+              <td>{{datePrice.workerEditTime | date:'dd/MM/yyyy'}}</td>
+              <td>{{datePrice.count}}</td>
+              <td>{{datePrice.price | currency : $}}</td>
+              <td>{{datePrice.sell | currency : $}}</td>
+              <td>{{datePrice.low | currency : $}}</td>
+              <td>{{datePrice.average | currency : $}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>

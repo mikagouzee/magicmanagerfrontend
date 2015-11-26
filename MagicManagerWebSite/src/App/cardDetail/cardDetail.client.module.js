@@ -1,4 +1,6 @@
-﻿angular.module(
-    "magicManagerApp.cardDetail",
-    ["magicManagerApp.cardDetail.routes"]
-    );
+angular.module(
+  'magicManagerApp.cardDetail',
+  [
+    'magicManagerApp.cardDetail.routes'
+  ]
+);
