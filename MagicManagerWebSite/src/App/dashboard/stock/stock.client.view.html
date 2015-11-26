@@ -1,22 +1,51 @@
-﻿<div class="container">
-    <h1>Stock</h1>
-    <h2>Détails du stock</h2>
+<div class="container">
+    <h1>Vue Stock</h1>
     <div class="row">
         <div class="col-xs-12">
-            <!--add d3 graph-->
+            <nvd3 options="dashboardStock.chart.options" data="dashboardStock.chart.data" ng-class="dashboardStock.chart.class"></nvd3>
         </div>
     </div>
+    <h2>Détails du stock</h2>
     <div class="row">
-        <div class="col-xs-12 col-md-6" ng-include="'App/dashboard/partial/toolbar.client.view.html'">
-
-        </div>
-        <div class="col-xs-12 col-md-6" ng-include="'App/dashboard/partial/search.client.view.html'">
-        </div>
+        <!--insert toolbar-->
     </div>
     <div class="row">
         <div class="col-xs-12">
             <!--Add ui grid-->
-
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                   <tr>
+                     <th>Nom</th>
+                     <th>Delta Price/trend</th>
+                     <th>Price</th>
+                     <th>Sell</th>
+                     <th>Average</th>
+                     <th>Low</th>
+                     <th>Nombre</th>
+                     <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="productDetail in dashboardStock.stockDetails | orderBy:'-delta'">
+                    <td>{{productDetail.name}}</td>
+                    <td>{{productDetail.delta}}</td>
+                    <td>{{productDetail.price}}</td>
+                    <td>{{productDetail.sell | currency:"&euro;"}}</td>
+                    <td>{{productDetail.average | currency:"&euro;"}}</td>
+                    <td>{{productDetail.low | currency:"&euro;"}}</td>
+                    <td>{{productDetail.siteWideCount}}</td>
+                    <td>
+                      <a ui-sref="cardDetail({articleId:productDetail.id})" class="btn btn-success">
+                        <i class="fa fa-play"></i>
+                        <span class="hidden-xs">
+                          Voir le détail de la carte
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
         </div>
     </div>
 </div>

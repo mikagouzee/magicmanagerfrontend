@@ -34,13 +34,14 @@
     "cms-element-builder-directive": "~1.0.1",
     "product-profile-cms-elements": "~1.0.1",
     "toggle-icon-button-directive": "~1.0.1",
-    "font-awesome": "~4.5.0"
+    "font-awesome": "~4.5.0",
+    "chart-serialize-factory": "~1.0.2"
   },
   "resolutions": {
     "font-awesome": "~4.4.0"
   },
   "overrides": {
-    "bootstrap":{
+    "bootstrap": {
       "main": [
         "dist/css/bootstrap.css",
         "assets/javascripts/bootstrap.js",
