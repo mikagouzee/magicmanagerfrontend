@@ -15,24 +15,24 @@
         "label":"Prix de votre stock",
         "key":"actualPrice.price",
         "type":"number",
-        "subtype":"currency"
+        "subType":"currency"
       },
       {
         "label":"Prix Sell",
         "key":"actualPrice.sell",
         "type":"number",
-        "subtype":"currency"
+        "subType":"currency"
       },
       {
         "label":"Prix Low",
         "key":"actualPrice.low",
         "type":"number",
-        "subtype":"currency"
+        "subType":"currency"
       },
       {
         "label":"Prix Average",
         "key":"actualPrice.average",
         "type":"number",
-        "subtype":"currency"
+        "subType":"currency"
       }
  ]}
