@@ -43,7 +43,6 @@ gulp.task('minify:bower',function(){
   return gulp.src(bowerFiles())
     .pipe(jsFilter)
     .pipe(sourcemaps.init())
-    .pipe(angularFilesort())
     .pipe(concat('vendor.js'))
     .pipe(rename(function (path) {
       path.basename += ".min";
