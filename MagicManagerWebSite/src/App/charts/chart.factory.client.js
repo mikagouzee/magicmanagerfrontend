@@ -36,6 +36,13 @@ function chartsFactory (chartsLocaleFactory,$q,$http,$parse) {
           chart: {
             type: defaults.type,
             height: defaults.height,
+            width: defaults.width,
+            margin:{
+              top:defaults.marginTop,
+              bottom:defaults.marginBottom,
+              left:defaults.marginLeft,
+              right:defaults.marginRight
+            },
             x: function(d) {
               return defaults.x(d);
             },
@@ -50,7 +57,9 @@ function chartsFactory (chartsLocaleFactory,$q,$http,$parse) {
                   x = new Date(x)
                 }
                 return defaults.xTickFormater(locale)(x);
-              }
+              },
+              showMaxMin: defaults.xShowMaxMin,
+              axisLabelDistance: defaults.xAxisLabelDistance
             },
             yAxis: {
               axisLabel: defaults.yAxisLabel,
@@ -59,7 +68,9 @@ function chartsFactory (chartsLocaleFactory,$q,$http,$parse) {
                   y = new Date(y)
                 }
                 return defaults.yTickFormater(locale)(y);
-              }
+              },
+              showMaxMin: defaults.yShowMaxMin,
+              axisLabelDistance: defaults.yAxisLabelDistance
             }
           }
         };

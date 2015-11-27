@@ -76,8 +76,8 @@
   </ItemGroup>
   <ItemGroup>
     <!-- gulpinject -->
-    <Content Include="App\App-ff9f047f22.js"/>
-    <Content Include="App\App-ff9f047f22.js.map"/>
+    <Content Include="App\App-8e6f0ea7c7.js"/>
+    <Content Include="App\App-8e6f0ea7c7.js.map"/>
     <Content Include="Scripts\vendor-e4ff5c7872.js"/>
     <Content Include="Scripts\vendor-e4ff5c7872.js.map"/>
     <Content Include="fonts\FontAwesome.otf"/>
