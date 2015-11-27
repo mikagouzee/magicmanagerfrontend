@@ -21,13 +21,15 @@ function cardDetailController($stateParams, chartsFactory, productInfoFactory, k
     init();
 
     function init() {
-      var chartDefaults = chartsFactory.getChartDefaults();
+      chartsFactory.getChartDefaults('datecurrencylinechart', 'fr_fr').then(chartDefaultsSuccess);
+      function chartDefaultsSuccess(chartDefaults){
         productInfoFactory.getProductInfo($stateParams.articleId)
           .then(
             function(response){
               setProductInfo(response,chartDefaults)
             }
           );
+      }
       
     };
 

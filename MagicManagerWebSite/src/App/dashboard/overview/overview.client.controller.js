@@ -17,10 +17,12 @@ function dashboardOverviewController (stockFactory,stockChartFactory,marketFacto
   init();
   
   function init () {
-    var chartDefaults = chartsFactory.getChartDefaults();
-    var stockChartData = chartSerializeFactory.serialize(stockFactory.getStockInfo(),stockChartFactory.getXField(), stockChartFactory.getYFields());
-    vm.stockChart = {data: stockChartData,options: chartDefaults.chartOptions, class:chartDefaults.chartClass};
-    var marketChartData = chartSerializeFactory.serialize(marketFactory.getMarketInfo(),marketChartFactory.getXField(), marketChartFactory.getYFields());
-    vm.marketChart = {data: marketChartData,options: chartDefaults.chartOptions, class:chartDefaults.chartClass};
+    chartsFactory.getChartDefaults('datecurrencylinechart', 'fr_fr').then(chartDefaultsSuccess);
+    function chartDefaultsSuccess(chartDefaults){
+      var stockChartData = chartSerializeFactory.serialize(stockFactory.getStockInfo(),stockChartFactory.getXField(), stockChartFactory.getYFields());
+      vm.stockChart = {data: stockChartData,options: chartDefaults.chartOptions, class:chartDefaults.chartClass};
+      var marketChartData = chartSerializeFactory.serialize(marketFactory.getMarketInfo(),marketChartFactory.getXField(), marketChartFactory.getYFields());
+      vm.marketChart = {data: marketChartData,options: chartDefaults.chartOptions, class:chartDefaults.chartClass};
+    }
   }
 }

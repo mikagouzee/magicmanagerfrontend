@@ -16,8 +16,10 @@ function dashboardMarketController (marketFactory,marketChartFactory,chartsFacto
   
   function init () {
     vm.marketDetails = marketFactory.getMarketDetails();
-    var chartDefaults = chartsFactory.getChartDefaults();
-    var chartData = chartSerializeFactory.serialize(marketFactory.getMarketInfo(),marketChartFactory.getXField(), marketChartFactory.getYFields());
-    vm.chart = {data: chartData,options: chartDefaults.chartOptions, class:chartDefaults.chartClass};
+    chartsFactory.getChartDefaults('datecurrencylinechart', 'fr_fr').then(chartDefaultsSuccess);
+    function chartDefaultsSuccess(chartDefaults){
+      var chartData = chartSerializeFactory.serialize(marketFactory.getMarketInfo(),marketChartFactory.getXField(), marketChartFactory.getYFields());
+      vm.chart = {data: chartData,options: chartDefaults.chartOptions, class:chartDefaults.chartClass};
+    }
   }
 }

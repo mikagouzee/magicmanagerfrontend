@@ -1,0 +1,13 @@
+{
+  "type" : "lineChart",
+  "height" : 250,
+  "x" : "x",
+  "y" : "y",
+  "useInteractiveGuideline": true,
+  "xAxisLabel" : "Date",
+  "xTickD3Format" : "timeFormat",
+  "xTickFormat" : "%x",
+  "yTickD3Format":"numberFormat",
+  "yTickFormat" : "$,.2f",
+  "chartClass" : "with-3d-shadow with-transitions"
+}
