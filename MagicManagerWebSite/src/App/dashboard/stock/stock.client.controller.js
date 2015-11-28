@@ -16,8 +16,10 @@ function dashboardStockController (stockFactory,stockChartFactory,chartsFactory,
   
   function init () {
     vm.stockDetails = stockFactory.getStockDetails();
-    var chartDefaults = chartsFactory.getChartDefaults();
-    var chartData = chartSerializeFactory.serialize(stockFactory.getStockInfo(),stockChartFactory.getXField(), stockChartFactory.getYFields());
-    vm.chart = {data: chartData,options: chartDefaults.chartOptions, class:chartDefaults.chartClass};
+    chartsFactory.getChartDefaults('datecurrencylinechart', 'fr_fr').then(chartDefaultsSuccess);
+    function chartDefaultsSuccess(chartDefaults){
+      var chartData = chartSerializeFactory.serialize(stockFactory.getStockInfo(),stockChartFactory.getXField(), stockChartFactory.getYFields());
+      vm.chart = {data: chartData,options: chartDefaults.chartOptions, class:chartDefaults.chartClass};
+    };
   }
 }

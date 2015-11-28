@@ -11,8 +11,10 @@
 
 function productInfoFactory($http, $q) {
     var factory = {};
+  
     factory.getProductInfo = getProductInfo;
     factory.getProducts = getProducts;
+  
     return factory;
 
     function getProductInfo(articleId) {
