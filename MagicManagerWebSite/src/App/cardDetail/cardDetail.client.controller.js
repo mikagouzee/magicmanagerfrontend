@@ -36,7 +36,6 @@ function cardDetailController($stateParams, chartsFactory, productInfoFactory, k
     function setProductInfo(response,chartDefaults) {
         if (!response[0]) {
             vm.productInfo = response[1];
-            console.log(cardDetailChartFactory.getXField)
             var chartData = chartSerializeFactory.serialize(vm.productInfo.dailyPrices,cardDetailChartFactory.getXField(),cardDetailChartFactory.getYFields());
             vm.chart = {data: chartData,options: chartDefaults.chartOptions, class:chartDefaults.chartClass};
             vm.techSheetTables = [];
