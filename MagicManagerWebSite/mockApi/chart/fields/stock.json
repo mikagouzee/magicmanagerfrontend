@@ -1,0 +1,23 @@
+{
+  "x":{
+    "key":"workerEditTime"
+  },
+  "ys":[
+    {
+      "key":"price",
+      "label":"Price"
+    },
+    {
+      "key":"sell",
+      "label":"Sell"
+    },
+    {
+      "key":"low",
+      "label":"Low"
+    },
+    {
+      "key":"average",
+      "label":"Average"
+    }
+  ]
+}
