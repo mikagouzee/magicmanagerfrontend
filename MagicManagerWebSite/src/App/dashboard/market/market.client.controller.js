@@ -2,14 +2,14 @@ angular.module(
   'magicManagerApp.dashboard.market.controller', 
   [
     'magicManagerApp.market.factory',
-    'magicManagerApp.market.chart.factory',
+    'magicManagerApp.chart.fields.factory',
     'magicManagerApp.charts.factory',
     'chartSerialize.factory'
   ]
 )
   .controller('dashboardMarketController',dashboardMarketController)
 
-function dashboardMarketController (marketFactory,marketChartFactory,chartsFactory,chartSerializeFactory) {
+function dashboardMarketController (marketFactory,chartFieldsFactory,chartsFactory,chartSerializeFactory) {
   var vm = this;
   
   init();
@@ -18,8 +18,11 @@ function dashboardMarketController (marketFactory,marketChartFactory,chartsFacto
     vm.marketDetails = marketFactory.getMarketDetails();
     chartsFactory.getChartDefaults('datecurrencylinechart', 'fr_fr').then(chartDefaultsSuccess);
     function chartDefaultsSuccess(chartDefaults){
-      var chartData = chartSerializeFactory.serialize(marketFactory.getMarketInfo(),marketChartFactory.getXField(), marketChartFactory.getYFields());
-      vm.chart = {data: chartData,options: chartDefaults.chartOptions, class:chartDefaults.chartClass};
+      chartFieldsFactory.getFields('market').then(fieldSuccess);
+      function fieldSuccess(fields){
+        var chartData = chartSerializeFactory.serialize(marketFactory.getMarketInfo(),fields.x, fields.ys);
+        vm.chart = {data: chartData,options: chartDefaults.chartOptions, class:chartDefaults.chartClass};
+      }
     }
   }
 }
