@@ -13,10 +13,14 @@ function dashboardMarketController (marketFactory,chartsFactory) {
   init();
   
   function init () {
-    vm.marketDetails = marketFactory.getMarketDetails();
     
-    chartsFactory.generateChart(marketFactory.getMarketInfo(),'market','fr_fr')
-      .then(setChart);
+    marketFactory.getDashboardData().then(setDashboard);
+    
+    function setDashboard(dashboardData){
+      vm.marketDetails = dashboardData.details;
+      chartsFactory.generateChart(dashboardData.info,'market','fr_fr')
+        .then(setChart);
+    };    
     
     function setChart (chart) {
       vm.chart = chart;

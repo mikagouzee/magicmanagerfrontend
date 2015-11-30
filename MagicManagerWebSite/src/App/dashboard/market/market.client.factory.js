@@ -1,82 +1,94 @@
 angular.module(
   'magicManagerApp.market.factory', 
-  []
-).factory('marketFactory',marketFactory)
+  [
+    'magicManagerApp.charts.factory'
+  ]
+)
+  .factory('marketFactory',marketFactory)
 
-function marketFactory () {
+function marketFactory (chartsFactory,$q,$http) {
   var factory = {};
   
-  factory.getMarketInfo = getMarketInfo;
-  factory.getMarketDetails = getMarketDetails;
+  factory.getDashboardData = getDashboardData;
+  factory.getDetails = getDetails;
+  factory.getInfo = getInfo;
   
   return factory;
   
-  function getMarketInfo () {
-    var marketInfo = [
-      {
-        sell: getRandomArbitrary(100000, 200000),
-        low: getRandomArbitrary(100000, 200000),
-        average: getRandomArbitrary(100000, 200000),
-        workerEditTime: 1000000000
-      }, {
-        sell: getRandomArbitrary(100000, 200000),
-        low: getRandomArbitrary(100000, 200000),
-        average: getRandomArbitrary(100000, 200000),
-        workerEditTime: 2000000000
-      }, {
-        sell: getRandomArbitrary(100000, 200000),
-        low: getRandomArbitrary(100000, 200000),
-        average: getRandomArbitrary(100000, 200000),
-        workerEditTime: 3000000000
-      }, {
-        sell: getRandomArbitrary(100000, 200000),
-        low: getRandomArbitrary(100000, 200000),
-        average: getRandomArbitrary(100000, 200000),
-        workerEditTime: 4000000000
-      }, {
-        sell: getRandomArbitrary(100000, 200000),
-        low: getRandomArbitrary(100000, 200000),
-        average: getRandomArbitrary(100000, 200000),
-        workerEditTime: 5000000000
-      }, {
-        sell: getRandomArbitrary(100000, 200000),
-        low: getRandomArbitrary(100000, 200000),
-        average: getRandomArbitrary(100000, 200000),
-        workerEditTime: 6000000000
-      }, {
-        sell: getRandomArbitrary(100000, 200000),
-        low: getRandomArbitrary(100000, 200000),
-        average: getRandomArbitrary(100000, 200000),
-        workerEditTime: 7000000000
-      }
-    ];
+  function getDashboardData () {
     
-    return marketInfo;
+    var deferred = $q.defer();
+    
+    var dashboardData = {};
+    
+    var detailsPromise = getDetails();
+    var infoPromise = getInfo();
+    
+    var promises = [detailsPromise,infoPromise];
+    
+    $q.all(promises).then(function(values){
+      
+      dashboardData.details = values[0];
+      dashboardData.info = values[1];
+      
+      deferred.resolve(dashboardData);
+      
+    });
+    
+    return deferred.promise;
+    
   };
   
-  function getMarketDetails () {
-      var marketDetails = [
-        {
-          id:1,
-          name:'test card 1',
-          average: getRandomArbitrary(100, 200),
-          sell: getRandomArbitrary(100, 200),
-          low: getRandomArbitrary(100, 200),
-          siteWideCount:getRandomArbitrary(1000, 4000)
-        },
-        {
-          id:2,
-          name:'test card 2',
-          average: getRandomArbitrary(100, 200),
-          sell: getRandomArbitrary(100, 200),
-          low: getRandomArbitrary(100, 200),
-          siteWideCount:getRandomArbitrary(1000, 4000)
-        }
-      ];
-      return marketDetails;
-    };
+  function getDetails () {
+    
+    var deferred = $q.defer();
+    
+    var marketDetails =[];
+    
+    $http.get('/mockApi/dashboard/market/details.json').then(successCallback, errorCallback);
+    
+    function successCallback (details) {
+      
+      marketDetails = details.data;
+      
+      deferred.resolve(marketDetails);
+      
+    }
+    
+    function errorCallback (error) {
+      
+      deferred.reject(false);
+      
+    }
+    
+    return deferred.promise;
   
-  function getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
-  }
+  };
+  
+  function getInfo () {
+    
+    var deferred = $q.defer();
+    
+    var marketInfo = [];
+    
+    $http.get('/mockApi/dashboard/market/info.json').then(successCallback, errorCallback);
+    
+    function successCallback (info) {
+      
+      marketInfo = info.data;
+      
+      deferred.resolve(marketInfo);
+      
+    }
+    
+    function errorCallback (error) {
+      
+      deferred.reject(false);
+      
+    }
+    
+    return deferred.promise;
+    
+  };
+  
 }
