@@ -76,8 +76,8 @@
   </ItemGroup>
   <ItemGroup>
     <!-- gulpinject -->
-    <Content Include="App\App-4bfbc5f5d5.js"/>
-    <Content Include="App\App-4bfbc5f5d5.js.map"/>
+    <Content Include="App\App-3e7bcbd638.js"/>
+    <Content Include="App\App-3e7bcbd638.js.map"/>
     <Content Include="Scripts\vendor-e4ff5c7872.js"/>
     <Content Include="Scripts\vendor-e4ff5c7872.js.map"/>
     <Content Include="fonts\FontAwesome.otf"/>
@@ -115,6 +115,7 @@
     <Content Include="src\App\charts\chart.fields.factory.client.js"/>
     <Content Include="src\App\charts\charts.defaults.factory.client.js"/>
     <Content Include="src\App\charts\charts.locale.factory.client.js"/>
+    <Content Include="src\App\dashboard\dashboard.client.factory.js"/>
     <Content Include="src\App\dashboard\dashboard.client.module.js"/>
     <Content Include="src\App\dashboard\dashboard.client.route.js"/>
     <Content Include="src\App\dashboard\dashboard.client.view.html"/>
@@ -130,13 +131,11 @@
     <Content Include="src\App\partials\navbar.client.view.html"/>
     <Content Include="src\App\dashboard\export\export.client.view.html"/>
     <Content Include="src\App\dashboard\market\market.client.controller.js"/>
-    <Content Include="src\App\dashboard\market\market.client.factory.js"/>
     <Content Include="src\App\dashboard\market\market.client.view.html"/>
     <Content Include="src\App\dashboard\overview\overview.client.controller.js"/>
     <Content Include="src\App\dashboard\overview\overview.client.view.html"/>
     <Content Include="src\App\dashboard\partials\sidebar.client.view.html"/>
     <Content Include="src\App\dashboard\stock\stock.client.controller.js"/>
-    <Content Include="src\App\dashboard\stock\stock.client.factory.js"/>
     <Content Include="src\App\dashboard\stock\stock.client.view.html"/>
     <Content Include="src\App"/>
     <Content Include="src\Content"/>
