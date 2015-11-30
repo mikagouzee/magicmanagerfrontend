@@ -1,0 +1,11 @@
+{
+  "x":{
+    "key":"workerEditTime"
+  },
+  "ys":[
+    {
+      "key":"delta",
+      "label":"Ecart prix/average"
+    }
+  ]
+}

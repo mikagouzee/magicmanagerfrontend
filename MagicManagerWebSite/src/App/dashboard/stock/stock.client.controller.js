@@ -16,7 +16,7 @@ function dashboardStockController (dashboardFactory) {
     function setDashboard(dashboardData){
       vm.stockDetails = dashboardData.details;
       vm.chart = dashboardData.chart;
-    }
+    };
     
   }
 }

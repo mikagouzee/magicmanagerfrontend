@@ -10,5 +10,11 @@
     "dashboardName":"stock",
     "chartName":"stockoverview",
     "stateTitle":"dashboard.stock"
+  },
+  {
+    "title":"Différence prix/average",
+    "dashboardName":"stock",
+    "chartName":"deltaoverview",
+    "stateTitle":"dashboard.stock"
   }
 ]

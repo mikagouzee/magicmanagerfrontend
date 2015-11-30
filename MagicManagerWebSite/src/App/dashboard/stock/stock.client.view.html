@@ -17,7 +17,8 @@
                 <thead>
                    <tr>
                      <th>Nom</th>
-                     <th>Delta Price/trend</th>
+                     <th>Ecart absolu prix/average</th>
+                     <th>Ecart prix/average</th>
                      <th>Price</th>
                      <th>Sell</th>
                      <th>Average</th>
@@ -27,8 +28,9 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr ng-repeat="productDetail in dashboardStock.stockDetails | orderBy:'-delta'">
+                  <tr ng-repeat="productDetail in dashboardStock.stockDetails | orderBy:'-absoluteDelta'">
                     <td>{{productDetail.name}}</td>
+                    <td>{{productDetail.absoluteDelta}}</td>
                     <td>{{productDetail.delta}}</td>
                     <td>{{productDetail.price}}</td>
                     <td>{{productDetail.sell | currency:"&euro;"}}</td>
