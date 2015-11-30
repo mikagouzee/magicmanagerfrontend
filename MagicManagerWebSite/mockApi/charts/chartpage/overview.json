@@ -1,0 +1,14 @@
+[
+  {
+    "title":"Marché",
+    "dashboardName":"market",
+    "chartName":"marketoverview",
+    "stateTitle":"dashboard.market"
+  },
+  {
+    "title":"Stock",
+    "dashboardName":"stock",
+    "chartName":"stockoverview",
+    "stateTitle":"dashboard.stock"
+  }
+]
