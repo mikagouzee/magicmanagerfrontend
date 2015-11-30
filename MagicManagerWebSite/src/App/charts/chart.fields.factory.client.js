@@ -17,7 +17,7 @@ function chartFieldsFactory ($q, $http) {
     var deferred = $q.defer();
     var fields = {};
     
-    $http.get('/mockApi/chart/fields/'+chart+'.json').then(successCallback, errorCallback);
+    $http.get('/mockApi/charts/fields/'+chart+'.json').then(successCallback, errorCallback);
     
     function successCallback(response){
       fields = response.data;

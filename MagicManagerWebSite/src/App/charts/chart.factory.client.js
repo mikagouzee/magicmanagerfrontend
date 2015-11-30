@@ -1,88 +1,55 @@
 angular.module(
   'magicManagerApp.charts.factory', 
   [
-    'magicManagerApp.charts.locale.factory',
+    'magicManagerApp.charts.defaults.factory',
+    'magicManagerApp.chart.fields.factory',
+    'chartSerialize.factory',
    'nvd3' 
   ]
 ).factory('chartsFactory',chartsFactory)
 
-function chartsFactory (chartsLocaleFactory,$q,$http,$parse) {
+function chartsFactory (chartsDefaultsFactory,chartsLocaleFactory,chartFieldsFactory,chartSerializeFactory,$q,$http) {
   var factory = {};
   
-  factory.getChartDefaults = getChartDefaults;
+  factory.generateChart = generateChart;
   
   return factory;
   
-  function getChartDefaults (chartType, localeCode) {
-    var chartData = {};
-    
+  function generateChart (data, chartInfo, localeCode) {
     var deferred = $q.defer();
+
+    var chart = {};
     
-    chartsLocaleFactory.getLocale(localeCode)
-      .then(localeSuccess);
+    $http.get('/mockApi/charts/chart/'+chartInfo+'.json').then(successCallback, errorCallback);
     
-    function localeSuccess (localeData){
-      var locale = d3.locale(localeData);
+    function successCallback (info){
       
-      $http.get('/mockApi/chart/defaults/'+chartType+'.json').then(successCallback);
+      info = info.data;
       
-      function successCallback (defaultsResponse) {
-        var defaults = defaultsResponse.data;
-        defaults.x = $parse(defaults.x);
-        defaults.y = $parse(defaults.y);
-        defaults.xTickFormater = $parse( defaults.xTickD3Format + '("' + defaults.xTickFormat + '")');
-        defaults.yTickFormater = $parse( defaults.yTickD3Format + '("' + defaults.yTickFormat + '")');
-        chartData.chartOptions = {
-          chart: {
-            type: defaults.type,
-            height: defaults.height,
-            width: defaults.width,
-            margin:{
-              top:defaults.marginTop,
-              bottom:defaults.marginBottom,
-              left:defaults.marginLeft,
-              right:defaults.marginRight
-            },
-            x: function(d) {
-              return defaults.x(d);
-            },
-            y: function(d) {
-              return defaults.y(d);
-            },
-            useInteractiveGuideline: defaults.useInteractiveGuideline,
-            xAxis: {
-              axisLabel: defaults.xAxisLabel,
-              tickFormat:function(x) {
-                if (defaults.xTickD3Format === 'timeFormat') {
-                  x = new Date(x)
-                }
-                return defaults.xTickFormater(locale)(x);
-              },
-              showMaxMin: defaults.xShowMaxMin,
-              axisLabelDistance: defaults.xAxisLabelDistance
-            },
-            yAxis: {
-              axisLabel: defaults.yAxisLabel,
-              tickFormat:function(y) {
-                if (defaults.yTickD3Format === 'timeFormat') {
-                  y = new Date(y)
-                }
-                return defaults.yTickFormater(locale)(y);
-              },
-              showMaxMin: defaults.yShowMaxMin,
-              axisLabelDistance: defaults.yAxisLabelDistance
-            }
-          }
-        };
+      var fieldsFactory =  chartFieldsFactory.getFields(info.fields);
+      var defaultsFactory = chartsDefaultsFactory.getChartDefaults(info.type, localeCode);
     
-          chartData.chartClass = defaults.chartClass;
+      var promises = [fieldsFactory,defaultsFactory];
     
-          deferred.resolve(chartData);
-      }
+      $q.all(promises).then(function(values){
+        var fields = values[0];
+        
+        var chartData = chartSerializeFactory.serialize(data,fields.x, fields.ys);
+
+        var chartDefaults = values[1];
       
+        chart = {data: chartData,options: chartDefaults.chartOptions, class:chartDefaults.chartClass};
       
+        deferred.resolve(chart);
+      
+      });
     };
-   
+    
+    function errorCallback(error){
+      deferred.reject(false);
+    }
+    
+    
     return deferred.promise;
   }
 }

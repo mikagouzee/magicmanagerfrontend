@@ -15,7 +15,7 @@ function chartsLocaleFactory ($q,$http) {
     var deferred = $q.defer();
     var locale = {};
     
-    $http.get('/mockApi/chart/locale/'+localeCode+'.json').then(successCallback, errorCallback);
+    $http.get('/mockApi/charts/locale/'+localeCode+'.json').then(successCallback, errorCallback);
     
     function successCallback(response){
       locale = response.data;
