@@ -11,11 +11,9 @@
   "xAxisLabel" : "Date",
   "xTickD3Format" : "timeFormat",
   "xTickFormat" : "%x",
-  "xShowMaxMin" : true,
   "xAxisLabelDistance": 0,
   "yTickD3Format":"numberFormat",
   "yTickFormat" : "$,.2f",
-  "yShowMaxMin" : false,
   "yAxisLabelDistance": 0,
   "chartClass" : "with-3d-shadow with-transitions"
 }
