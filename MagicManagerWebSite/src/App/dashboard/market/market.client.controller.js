@@ -1,22 +1,26 @@
 angular.module(
   'magicManagerApp.dashboard.market.controller', 
   [
-    'magicManagerApp.charts.factory',
-    'magicManagerApp.market.factory'
+    'magicManagerApp.dashboard.factory',
+    'magicManagerApp.charts.factory'
   ]
 )
   .controller('dashboardMarketController',dashboardMarketController)
 
-function dashboardMarketController (marketFactory,chartsFactory) {
+function dashboardMarketController (dashboardFactory,chartsFactory) {
   var vm = this;
   
   init();
   
   function init () {
-    vm.marketDetails = marketFactory.getMarketDetails();
     
-    chartsFactory.generateChart(marketFactory.getMarketInfo(),'market','fr_fr')
-      .then(setChart);
+    dashboardFactory.getDashboardData('market').then(setDashboard);
+    
+    function setDashboard(dashboardData){
+      vm.marketDetails = dashboardData.details;
+      chartsFactory.generateChart(dashboardData.info,'market','fr_fr')
+        .then(setChart);
+    };    
     
     function setChart (chart) {
       vm.chart = chart;
