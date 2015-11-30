@@ -1,41 +1,45 @@
-﻿angular.module(
-   "magicManagerApp.productInfo.factory",
+angular.module(
+   'magicManagerApp.cardDetail.factory',
    [
      
    ]
  )
    .factory(
-   "productInfoFactory",
-   productInfoFactory
- )
+    'cardDetailFactory',
+    cardDetailFactory
+   )
 
-function productInfoFactory($http, $q) {
+function cardDetailFactory($http, $q) {
     var factory = {};
   
-    factory.getProductInfo = getProductInfo;
-    factory.getProducts = getProducts;
+    factory.getDetails = getDetails;
   
     return factory;
 
-    function getProductInfo(articleId) {
-        var deferred = $q.defer();
-        var productInfo = {};
-
-        //todo : insert api call
-        $http.get('/mockApi/productInfo/'+articleId+'.json').then(successCallback, errorCallback);
-        function successCallback(response) {
-            productInfo = [false, response.data];
-
-            productInfo[1].actualPrice = response.data.dailyPrices[0];
-            deferred.resolve(productInfo);
-        };
-        function errorCallback(response) {
-            productInfo = ["an error occurred : get", response];
-            deferred.reject(productInfo);
-        };
+    function getDetails(articleId) {
+      var deferred = $q.defer();
+      var cardDetail = {};
+      
+      $http.get('/mockApi/cardDetail/'+articleId+'.json').then(successCallback, errorCallback);
+      
+      function successCallback(response) {
         
-        return deferred.promise;
+        cardDetail = response.data;
+        
+        cardDetail.actualPrice = response.data.dailyPrices[0];
+        
+        deferred.resolve(cardDetail);
+      
+      };
+      
+      function errorCallback(response) {
+        
+        deferred.reject(false);
+      
+      };
+      
+      return deferred.promise;
+      
     }
 
-    function getProducts() { };
 }

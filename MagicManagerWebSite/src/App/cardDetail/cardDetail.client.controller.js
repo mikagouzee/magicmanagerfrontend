@@ -1,7 +1,7 @@
 angular.module(
     'magicManagerApp.cardDetail.controller',
     [
-      'magicManagerApp.productInfo.factory',
+      'magicManagerApp.cardDetail.factory',
       'magicManagerApp.keyValueTableModels.factory',
       'magicManagerApp.charts.factory',
       'ui.router',
@@ -13,24 +13,25 @@ angular.module(
      cardDetailController
    );
 
-function cardDetailController($stateParams, productInfoFactory, keyValueTableModelsFactory, chartsFactory) {
+function cardDetailController($stateParams, cardDetailFactory, keyValueTableModelsFactory, chartsFactory) {
     var vm = this;
 
     init();
 
     function init() {
       
-      productInfoFactory.getProductInfo($stateParams.articleId)
-        .then(setProductInfo);
+      cardDetailFactory.getDetails($stateParams.articleId)
+        .then(setCardDetail);
 
-      function setProductInfo(response) {
-        if (!response[0]) {
-          vm.productInfo = response[1];
+      function setCardDetail(cardDetails) {
+        
+          vm.productInfo = cardDetails;
+        
           setTechSheetTables();
+        
           chartsFactory.generateChart(vm.productInfo.dailyPrices,'carddetail','fr_fr')
             .then(setChart);
 
-        }
       };
       
       function setTechSheetTables () {

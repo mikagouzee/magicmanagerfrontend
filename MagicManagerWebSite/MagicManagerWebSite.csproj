@@ -76,8 +76,8 @@
   </ItemGroup>
   <ItemGroup>
     <!-- gulpinject -->
-    <Content Include="App\App-ef7de44915.js"/>
-    <Content Include="App\App-ef7de44915.js.map"/>
+    <Content Include="App\App-4bfbc5f5d5.js"/>
+    <Content Include="App\App-4bfbc5f5d5.js.map"/>
     <Content Include="Scripts\vendor-e4ff5c7872.js"/>
     <Content Include="Scripts\vendor-e4ff5c7872.js.map"/>
     <Content Include="fonts\FontAwesome.otf"/>
@@ -103,11 +103,11 @@
     <Content Include="src\App\home"/>
     <Content Include="src\App\keyValueTablesModels"/>
     <Content Include="src\App\partials"/>
-    <Content Include="src\App\productInfo"/>
     <Content Include="src\App\route.client.config.js"/>
     <Content Include="src\Content\magicmanager.png"/>
     <Content Include="src\Content\style.css"/>
     <Content Include="src\App\cardDetail\cardDetail.client.controller.js"/>
+    <Content Include="src\App\cardDetail\cardDetail.client.factory.js"/>
     <Content Include="src\App\cardDetail\cardDetail.client.module.js"/>
     <Content Include="src\App\cardDetail\cardDetail.client.route.js"/>
     <Content Include="src\App\cardDetail\cardDetail.client.view.html"/>
@@ -128,7 +128,6 @@
     <Content Include="src\App\home\home.client.view.html"/>
     <Content Include="src\App\keyValueTablesModels\keyValueTableModels.client.factory.js"/>
     <Content Include="src\App\partials\navbar.client.view.html"/>
-    <Content Include="src\App\productInfo\productInfo.client.factory.js"/>
     <Content Include="src\App\dashboard\export\export.client.view.html"/>
     <Content Include="src\App\dashboard\market\market.client.controller.js"/>
     <Content Include="src\App\dashboard\market\market.client.factory.js"/>
