@@ -1,12 +1,10 @@
 angular.module(
-  'magicManagerApp.market.factory', 
-  [
-    'magicManagerApp.charts.factory'
-  ]
+  'magicManagerApp.dashboard.factory', 
+  []
 )
-  .factory('marketFactory',marketFactory)
+  .factory('dashboardFactory',dashboardFactory)
 
-function marketFactory (chartsFactory,$q,$http) {
+function dashboardFactory ($q,$http) {
   var factory = {};
   
   factory.getDashboardData = getDashboardData;
@@ -15,14 +13,14 @@ function marketFactory (chartsFactory,$q,$http) {
   
   return factory;
   
-  function getDashboardData () {
+  function getDashboardData (dashboardName) {
     
     var deferred = $q.defer();
     
     var dashboardData = {};
     
-    var detailsPromise = getDetails();
-    var infoPromise = getInfo();
+    var detailsPromise = getDetails(dashboardName);
+    var infoPromise = getInfo(dashboardName);
     
     var promises = [detailsPromise,infoPromise];
     
@@ -39,19 +37,19 @@ function marketFactory (chartsFactory,$q,$http) {
     
   };
   
-  function getDetails () {
+  function getDetails (dashboardName) {
     
     var deferred = $q.defer();
     
-    var marketDetails =[];
+    var dashboardDetails =[];
     
-    $http.get('/mockApi/dashboard/market/details.json').then(successCallback, errorCallback);
+    $http.get('/mockApi/dashboard/'+dashboardName+'/details.json').then(successCallback, errorCallback);
     
     function successCallback (details) {
       
-      marketDetails = details.data;
+      dashboardDetails = details.data;
       
-      deferred.resolve(marketDetails);
+      deferred.resolve(dashboardDetails);
       
     }
     
@@ -65,19 +63,19 @@ function marketFactory (chartsFactory,$q,$http) {
   
   };
   
-  function getInfo () {
+  function getInfo (dashboardName) {
     
     var deferred = $q.defer();
     
-    var marketInfo = [];
+    var dashboardInfo = [];
     
-    $http.get('/mockApi/dashboard/market/info.json').then(successCallback, errorCallback);
+    $http.get('/mockApi/dashboard/'+dashboardName+'/info.json').then(successCallback, errorCallback);
     
     function successCallback (info) {
       
-      marketInfo = info.data;
+      dashboardInfo = info.data;
       
-      deferred.resolve(marketInfo);
+      deferred.resolve(dashboardInfo);
       
     }
     

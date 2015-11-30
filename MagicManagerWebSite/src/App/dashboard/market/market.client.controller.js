@@ -1,20 +1,20 @@
 angular.module(
   'magicManagerApp.dashboard.market.controller', 
   [
-    'magicManagerApp.charts.factory',
-    'magicManagerApp.market.factory'
+    'magicManagerApp.dashboard.factory',
+    'magicManagerApp.charts.factory'
   ]
 )
   .controller('dashboardMarketController',dashboardMarketController)
 
-function dashboardMarketController (marketFactory,chartsFactory) {
+function dashboardMarketController (dashboardFactory,chartsFactory) {
   var vm = this;
   
   init();
   
   function init () {
     
-    marketFactory.getDashboardData().then(setDashboard);
+    dashboardFactory.getDashboardData('market').then(setDashboard);
     
     function setDashboard(dashboardData){
       vm.marketDetails = dashboardData.details;
