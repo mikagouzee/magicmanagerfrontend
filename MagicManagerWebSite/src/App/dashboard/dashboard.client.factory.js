@@ -66,7 +66,7 @@ function dashboardFactory (chartsFactory,$q,$http) {
   
   };
   
-  function getChart(dashboardName,chartName,localeCode) {
+  function getChart(dashboardName,chartName,localeCode,title,stateLink) {
     var deferred = $q.defer();
     
     var chart = {};
@@ -83,7 +83,8 @@ function dashboardFactory (chartsFactory,$q,$http) {
     function setChart(chartData){
       
       chart = chartData;
-      
+      chart.title = title;
+      chart.stateLink = stateLink;
       deferred.resolve(chart);
       
     };
