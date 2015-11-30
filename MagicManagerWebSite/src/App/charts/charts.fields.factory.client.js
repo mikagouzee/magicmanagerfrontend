@@ -1,12 +1,12 @@
 angular.module(
-  'magicManagerApp.chart.fields.factory',
+  'magicManagerApp.charts.fields.factory',
   [
     
   ]
 )
-  .factory('chartFieldsFactory',chartFieldsFactory);
+  .factory('chartsFieldsFactory',chartsFieldsFactory);
 
-function chartFieldsFactory ($q, $http) {
+function chartsFieldsFactory ($q, $http) {
   var factory = {};
   
   factory.getFields = getFields;

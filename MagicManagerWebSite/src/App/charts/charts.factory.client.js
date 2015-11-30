@@ -2,13 +2,13 @@ angular.module(
   'magicManagerApp.charts.factory', 
   [
     'magicManagerApp.charts.defaults.factory',
-    'magicManagerApp.chart.fields.factory',
+    'magicManagerApp.charts.fields.factory',
     'chartSerialize.factory',
    'nvd3' 
   ]
 ).factory('chartsFactory',chartsFactory)
 
-function chartsFactory (chartsDefaultsFactory,chartsLocaleFactory,chartFieldsFactory,chartSerializeFactory,$q,$http) {
+function chartsFactory (chartsDefaultsFactory,chartsLocaleFactory,chartsFieldsFactory,chartSerializeFactory,$q,$http) {
   var factory = {};
   
   factory.generateChart = generateChart;
@@ -26,7 +26,7 @@ function chartsFactory (chartsDefaultsFactory,chartsLocaleFactory,chartFieldsFac
       
       info = info.data;
       
-      var fieldsFactory =  chartFieldsFactory.getFields(info.fields);
+      var fieldsFactory =  chartsFieldsFactory.getFields(info.fields);
       var defaultsFactory = chartsDefaultsFactory.getChartDefaults(info.type, localeCode);
     
       var promises = [fieldsFactory,defaultsFactory];
