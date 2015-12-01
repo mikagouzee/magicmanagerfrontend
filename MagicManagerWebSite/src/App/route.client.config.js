@@ -1,6 +1,10 @@
+//the main route module
 angular.module(
   "magicManagerApp.routes",
  [
+   //load ui-router
+   //The de-facto solution to flexible routing with nested views in AngularJS
+   //https://github.com/angular-ui/ui-router/
    "ui.router"
  ]
 )
