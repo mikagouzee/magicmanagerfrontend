@@ -75,72 +75,115 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <!-- gulpinject -->
-    <Content Include="App\App-9c5550c03c.min.js"/>
-    <Content Include="App\App-9c5550c03c.min.js.map"/>
-    <Content Include="Scripts\vendor-72a9ddb5f7.min.js"/>
-    <Content Include="Scripts\vendor-72a9ddb5f7.min.js.map"/>
-    <Content Include="fonts\FontAwesome.otf"/>
-    <Content Include="fonts\fontawesome-webfont.eot"/>
-    <Content Include="fonts\fontawesome-webfont.svg"/>
-    <Content Include="fonts\fontawesome-webfont.ttf"/>
-    <Content Include="fonts\fontawesome-webfont.woff"/>
-    <Content Include="fonts\fontawesome-webfont.woff2"/>
-    <Content Include="fonts\glyphicons-halflings-regular.eot"/>
-    <Content Include="fonts\glyphicons-halflings-regular.svg"/>
-    <Content Include="fonts\glyphicons-halflings-regular.ttf"/>
-    <Content Include="fonts\glyphicons-halflings-regular.woff"/>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2"/>
-    <Content Include="Content\app-ebe3951c56.css"/>
+    <!-- gulpinject:map -->
+    <Content Include="App\App-9a500d7c5c.js.map"/>
+    <Content Include="Scripts\vendor-e4ff5c7872.js.map"/>
     <Content Include="Content\app-ebe3951c56.css.map"/>
-    <Content Include="Content\magicmanager.png"/>
-    <Content Include="Content\vendor-020ee7a308.css"/>
     <Content Include="Content\vendor-020ee7a308.css.map"/>
-    <Content Include="src\App\app.js"/>
-    <Content Include="src\App\cardDetail"/>
-    <Content Include="src\App\charts"/>
-    <Content Include="src\App\dashboard"/>
-    <Content Include="src\App\home"/>
-    <Content Include="src\App\keyValueTablesModels"/>
-    <Content Include="src\App\partials"/>
-    <Content Include="src\App\route.client.config.js"/>
-    <Content Include="src\Content\magicmanager.png"/>
+    <!-- endgulpinject -->
+    
+    <!-- gulpinject:eot -->
+    <Content Include="fonts\fontawesome-webfont.eot"/>
+    <Content Include="fonts\glyphicons-halflings-regular.eot"/>
+    <!-- endgulpinject -->
+    
+    <!-- gulpinject:svg -->
+    <Content Include="fonts\fontawesome-webfont.svg"/>
+    <Content Include="fonts\glyphicons-halflings-regular.svg"/>
+    <!-- endgulpinject -->
+    
+    <!-- gulpinject:ttf -->
+    <Content Include="fonts\fontawesome-webfont.ttf"/>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf"/>
+    <!-- endgulpinject -->
+    
+    <!-- gulpinject:woff -->
+    <Content Include="fonts\fontawesome-webfont.woff"/>
+    <Content Include="fonts\glyphicons-halflings-regular.woff"/>
+    <!-- endgulpinject -->
+    
+    <!-- gulpinject:woff2 -->
+    <Content Include="fonts\fontawesome-webfont.woff2"/>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2"/>
+    <!-- endgulpinject -->
+    
+    <!-- gulpinject:css -->
+    <Content Include="Content\app-ebe3951c56.css"/>
+    <Content Include="Content\vendor-020ee7a308.css"/>
     <Content Include="src\Content\style.css"/>
+    <!-- endgulpinject -->
+    
+    <!-- gulpinject:png -->
+    <Content Include="Content\magicmanager.png"/>
+    <Content Include="src\Content\magicmanager.png"/>
+    <!-- endgulpinject -->
+    
+    <!-- gulpinject:jpg -->
+    <!-- endgulpinject -->
+    
+    <!-- gulpinject:gif -->
+    <!-- endgulpinject -->
+    
+    <!-- gulpinject:html -->
+    <Content Include="src\App\cardDetail\cardDetail.client.view.html"/>
+    <Content Include="src\App\dashboard\dashboard.client.view.html"/>
+    <Content Include="src\App\home\home.client.view.html"/>
+    <Content Include="src\App\partials\navbar.client.view.html"/>
+    <Content Include="src\App\dashboard\export\export.client.view.html"/>
+    <Content Include="src\App\dashboard\market\market.client.view.html"/>
+    <Content Include="src\App\dashboard\overview\overview.client.view.html"/>
+    <Content Include="src\App\dashboard\partials\sidebar.client.view.html"/>
+    <Content Include="src\App\dashboard\stock\stock.client.view.html"/>
+    <Content Include="src\index.html"/>
+    <!-- endgulpinject -->
+    
+    <!-- gulpinject:json -->
+    <Content Include="mockApi\cardDetail\1.json"/>
+    <Content Include="mockApi\keyvaluetablemodels\details.json"/>
+    <Content Include="mockApi\keyvaluetablemodels\flags.json"/>
+    <Content Include="mockApi\charts\chart\carddetail.json"/>
+    <Content Include="mockApi\charts\chart\deltaoverview.json"/>
+    <Content Include="mockApi\charts\chart\market.json"/>
+    <Content Include="mockApi\charts\chart\marketoverview.json"/>
+    <Content Include="mockApi\charts\chart\stock.json"/>
+    <Content Include="mockApi\charts\chart\stockoverview.json"/>
+    <Content Include="mockApi\charts\chartpage\overview.json"/>
+    <Content Include="mockApi\charts\defaults\datecurrencylinechart.json"/>
+    <Content Include="mockApi\charts\defaults\datepercentlinechart.json"/>
+    <Content Include="mockApi\charts\fields\carddetail.json"/>
+    <Content Include="mockApi\charts\fields\delta.json"/>
+    <Content Include="mockApi\charts\fields\market.json"/>
+    <Content Include="mockApi\charts\fields\stock.json"/>
+    <Content Include="mockApi\charts\locale\fr_fr.json"/>
+    <Content Include="mockApi\dashboard\market\details.json"/>
+    <Content Include="mockApi\dashboard\market\info.json"/>
+    <Content Include="mockApi\dashboard\stock\details.json"/>
+    <Content Include="mockApi\dashboard\stock\info.json"/>
+    <!-- endgulpinject -->
+    
+    <!-- gulpinject:js -->
+    <Content Include="App\App-9a500d7c5c.js"/>
+    <Content Include="Scripts\vendor-e4ff5c7872.js"/>
+    <Content Include="src\App\app.js"/>
+    <Content Include="src\App\route.client.config.js"/>
     <Content Include="src\App\cardDetail\cardDetail.client.controller.js"/>
     <Content Include="src\App\cardDetail\cardDetail.client.factory.js"/>
     <Content Include="src\App\cardDetail\cardDetail.client.module.js"/>
     <Content Include="src\App\cardDetail\cardDetail.client.route.js"/>
-    <Content Include="src\App\cardDetail\cardDetail.client.view.html"/>
-    <Content Include="src\App\charts\charts.defaults.factory.client.js"/>
-    <Content Include="src\App\charts\charts.factory.client.js"/>
-    <Content Include="src\App\charts\charts.fields.factory.client.js"/>
-    <Content Include="src\App\charts\charts.locale.factory.client.js"/>
-    <Content Include="src\App\charts\charts.page.factory.client.js"/>
+    <Content Include="src\App\charts\charts.client.factory.js"/>
+    <Content Include="src\App\charts\charts.defaults.client.factory.js"/>
+    <Content Include="src\App\charts\charts.fields.client.factory.js"/>
+    <Content Include="src\App\charts\charts.locale.client.factory.js"/>
+    <Content Include="src\App\charts\charts.page.client.factory.js"/>
     <Content Include="src\App\dashboard\dashboard.client.factory.js"/>
     <Content Include="src\App\dashboard\dashboard.client.module.js"/>
     <Content Include="src\App\dashboard\dashboard.client.route.js"/>
-    <Content Include="src\App\dashboard\dashboard.client.view.html"/>
-    <Content Include="src\App\dashboard\export"/>
-    <Content Include="src\App\dashboard\market"/>
-    <Content Include="src\App\dashboard\overview"/>
-    <Content Include="src\App\dashboard\partials"/>
-    <Content Include="src\App\dashboard\stock"/>
     <Content Include="src\App\home\home.client.module.js"/>
     <Content Include="src\App\home\home.client.route.js"/>
-    <Content Include="src\App\home\home.client.view.html"/>
     <Content Include="src\App\keyValueTablesModels\keyValueTableModels.client.factory.js"/>
-    <Content Include="src\App\partials\navbar.client.view.html"/>
-    <Content Include="src\App\dashboard\export\export.client.view.html"/>
     <Content Include="src\App\dashboard\market\market.client.controller.js"/>
-    <Content Include="src\App\dashboard\market\market.client.view.html"/>
     <Content Include="src\App\dashboard\overview\overview.client.controller.js"/>
-    <Content Include="src\App\dashboard\overview\overview.client.view.html"/>
-    <Content Include="src\App\dashboard\partials\sidebar.client.view.html"/>
     <Content Include="src\App\dashboard\stock\stock.client.controller.js"/>
-    <Content Include="src\App\dashboard\stock\stock.client.view.html"/>
-    <Content Include="src\App"/>
-    <Content Include="src\Content"/>
-    <Content Include="src\index.html"/>
     <!-- endgulpinject -->
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
