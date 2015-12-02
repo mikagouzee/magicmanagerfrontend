@@ -76,7 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <!-- gulpinject:map -->
-    <Content Include="App\App-9a500d7c5c.js.map"/>
+    <Content Include="App\App-652a47d0b9.js.map"/>
     <Content Include="Scripts\vendor-e4ff5c7872.js.map"/>
     <Content Include="Content\app-ebe3951c56.css.map"/>
     <Content Include="Content\vendor-020ee7a308.css.map"/>
@@ -131,6 +131,7 @@
     <Content Include="src\App\partials\navbar.client.view.html"/>
     <Content Include="src\App\dashboard\export\export.client.view.html"/>
     <Content Include="src\App\dashboard\market\market.client.view.html"/>
+    <Content Include="src\App\dashboard\outstock\outstock.client.view.html"/>
     <Content Include="src\App\dashboard\overview\overview.client.view.html"/>
     <Content Include="src\App\dashboard\partials\sidebar.client.view.html"/>
     <Content Include="src\App\dashboard\stock\stock.client.view.html"/>
@@ -145,6 +146,8 @@
     <Content Include="mockApi\charts\chart\deltaoverview.json"/>
     <Content Include="mockApi\charts\chart\market.json"/>
     <Content Include="mockApi\charts\chart\marketoverview.json"/>
+    <Content Include="mockApi\charts\chart\outstock.json"/>
+    <Content Include="mockApi\charts\chart\outstockoverview.json"/>
     <Content Include="mockApi\charts\chart\stock.json"/>
     <Content Include="mockApi\charts\chart\stockoverview.json"/>
     <Content Include="mockApi\charts\chartpage\overview.json"/>
@@ -153,16 +156,19 @@
     <Content Include="mockApi\charts\fields\carddetail.json"/>
     <Content Include="mockApi\charts\fields\delta.json"/>
     <Content Include="mockApi\charts\fields\market.json"/>
+    <Content Include="mockApi\charts\fields\outstock.json"/>
     <Content Include="mockApi\charts\fields\stock.json"/>
     <Content Include="mockApi\charts\locale\fr_fr.json"/>
     <Content Include="mockApi\dashboard\market\details.json"/>
     <Content Include="mockApi\dashboard\market\info.json"/>
+    <Content Include="mockApi\dashboard\outstock\details.json"/>
+    <Content Include="mockApi\dashboard\outstock\info.json"/>
     <Content Include="mockApi\dashboard\stock\details.json"/>
     <Content Include="mockApi\dashboard\stock\info.json"/>
     <!-- endgulpinject -->
     
     <!-- gulpinject:js -->
-    <Content Include="App\App-9a500d7c5c.js"/>
+    <Content Include="App\App-652a47d0b9.js"/>
     <Content Include="Scripts\vendor-e4ff5c7872.js"/>
     <Content Include="src\App\app.js"/>
     <Content Include="src\App\route.client.config.js"/>
@@ -182,6 +188,7 @@
     <Content Include="src\App\home\home.client.route.js"/>
     <Content Include="src\App\keyValueTablesModels\keyValueTableModels.client.factory.js"/>
     <Content Include="src\App\dashboard\market\market.client.controller.js"/>
+    <Content Include="src\App\dashboard\outstock\outstock.client.controller.js"/>
     <Content Include="src\App\dashboard\overview\overview.client.controller.js"/>
     <Content Include="src\App\dashboard\stock\stock.client.controller.js"/>
     <!-- endgulpinject -->

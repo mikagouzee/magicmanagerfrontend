@@ -9,6 +9,8 @@ angular.module(
     'magicManagerApp.dashboard.market.controller',
     //load the controller for the stock dashboard
     'magicManagerApp.dashboard.stock.controller',
+    //load the controller for the out of stock dashboard
+    'magicManagerApp.dashboard.outstock.controller',
     //load ui-router
     //The de-facto solution to flexible routing with nested views in AngularJS
     //https://github.com/angular-ui/ui-router/
@@ -78,6 +80,22 @@ function dashboardRoute($stateProvider) {
           controller:'dashboardStockController',
            //the name of the controller object in the stock dashboard view
           controllerAs:'dashboardStock'
+        }
+      )
+      .state(
+        //the dashboard out of stock state wich is a child of the dashboard state
+        'dashboard.outstock',
+        {
+          //the url appended to the dashboard state url
+          url: '/out-of-stock', 
+          //the child state template from $templateCache
+          templateProvider: function($templateCache){
+            return $templateCache.get('dashboard/outstock/outstock.client.view.html');
+          },
+          //the controller for the out of stock dashboard
+          controller:'dashboardOutStockController',
+          //the name of the controller object in the out of stock dashboard view
+          controllerAs:'dashboardOutStock'
         }
       )
       .state(
