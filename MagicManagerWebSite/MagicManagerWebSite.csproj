@@ -76,7 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <!-- gulpinject:map -->
-    <Content Include="App\App-652a47d0b9.js.map"/>
+    <Content Include="App\App-9ec0706cf6.js.map"/>
     <Content Include="Scripts\vendor-e4ff5c7872.js.map"/>
     <Content Include="Content\app-ebe3951c56.css.map"/>
     <Content Include="Content\vendor-020ee7a308.css.map"/>
@@ -168,7 +168,7 @@
     <!-- endgulpinject -->
     
     <!-- gulpinject:js -->
-    <Content Include="App\App-652a47d0b9.js"/>
+    <Content Include="App\App-9ec0706cf6.js"/>
     <Content Include="Scripts\vendor-e4ff5c7872.js"/>
     <Content Include="src\App\app.js"/>
     <Content Include="src\App\route.client.config.js"/>
