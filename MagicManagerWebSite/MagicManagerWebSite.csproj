@@ -68,7 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <!-- gulpinject:map -->
-    <Content Include="App\App-ab8ef63a79.js.map"/>
+    <Content Include="App\App-9605a14ae3.js.map"/>
     <Content Include="Scripts\vendor-0b014ec786.js.map"/>
     <Content Include="Content\app-562e5e6371.css.map"/>
     <Content Include="Content\vendor-cef012af61.css.map"/>
@@ -148,7 +148,7 @@
     <Content Include="mockApi\dashboard\stock\info.json"/>
     <!-- endgulpinject -->
     <!-- gulpinject:js -->
-    <Content Include="App\App-ab8ef63a79.js"/>
+    <Content Include="App\App-9605a14ae3.js"/>
     <Content Include="Scripts\vendor-0b014ec786.js"/>
     <Content Include="src\App\app.js"/>
     <Content Include="src\App\config.client.constant.js"/>
