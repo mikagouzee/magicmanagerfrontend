@@ -2,27 +2,27 @@
 "model":[
     {
       "label":"Foil",
-      "key":"article.isFoil",
+      "key":"isFoil",
       "type":"boolean"
     },
      {
         "label":"Signed",
-        "key":"article.isSigned",
+        "key":"isSigned",
       "type":"boolean"
       },
       {
         "label":"Altered",
-        "key":"article.isAltered",
+        "key":"isAltered",
       "type":"boolean"
       },
       {
         "label":"Playset",
-        "key":"article.isPlayset",
+        "key":"isPlayset",
      "type":"boolean"
       },
       {
         "label":"First Edition",
-        "key":"article.isFirstEd",
+        "key":"isFirstEd",
       "type":"boolean"
       }
     ]

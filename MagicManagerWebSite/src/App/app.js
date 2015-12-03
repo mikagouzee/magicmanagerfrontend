@@ -14,8 +14,9 @@
         //Call the card detail module
         "magicManagerApp.cardDetail",
         //call the gulp generated $templateCache module
-        'magicManagerApp.templates'
-
+        'magicManagerApp.templates',
+		//the API config
+		'magicManagerApp.config'
         // 3rd Party Modules
         
     ]);

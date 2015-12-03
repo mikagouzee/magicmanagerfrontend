@@ -1,23 +1,23 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h1>Détail de la carte {{cardDetail.productInfo.product.productName}}</h1>
+      <h1>Détail de la carte {{cardDetail.productInfo.ProductName}}</h1>
     </div>
     <div class="col-xs-12">
-      <p><small>Dernière mise à jour le {{cardDetail.productInfo.actualPrice.workerEditTime | date:'dd-MM-yyyy à HH:mm'}}</small></p>
+      <p><small>Dernière mise à jour le {{cardDetail.productInfo.actualPrice.WorkerEditTime | date:'dd-MM-yyyy à HH:mm'}}</small></p>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-md-3">
       <div class="row">
         <div class="col-xs-12">
-          <img ng-src="{{cardDetail.productInfo.product.imageUrl}}" alt="carte magic {{cardDetail.productInfo.product.productName}}" class="img-responsive center-block">
+          <img ng-src="{{cardDetail.productInfo.ImageUrl}}" alt="carte magic {{cardDetail.productInfo.ProductName}}" class="img-responsive center-block">
         </div>
         <div class="col-xs-12 text-center">
-            <span ng-class="'flag-icon-' +  cardDetail.productInfo.article.languageId" class="flag-icon"></span>
+            <span ng-class="'flag-icon-' +  cardDetail.productInfo.LanguageId" class="flag-icon"></span>
         </div>
         <div class="col-xs-12">
-          <a class="btn btn-info btn-block" ng-href="{{cardDetail.productInfo.product.productUrl}}" ng-attr-target="_blank">
+          <a class="btn btn-info btn-block" ng-href="{{cardDetail.productInfo.ProductUrl}}" target="_blank">
             <i class="fa fa-globe"></i> Voir sur MKM
           </a>
         </div>
@@ -50,13 +50,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="datePrice in cardDetail.productInfo.dailyPrices">
-              <td>{{datePrice.workerEditTime | date:'dd/MM/yyyy'}}</td>
-              <td>{{datePrice.count}}</td>
-              <td>{{datePrice.price | currency : $}}</td>
-              <td>{{datePrice.sell | currency : $}}</td>
-              <td>{{datePrice.low | currency : $}}</td>
-              <td>{{datePrice.average | currency : $}}</td>
+            <tr ng-repeat="datePrice in cardDetail.productInfo.lastDp">
+              <td>{{datePrice.WorkerEditTime | date:'dd/MM/yyyy'}}</td>
+              <td>{{datePrice.Count}}</td>
+              <td>{{datePrice.Price | currency : $}}</td>
+              <td>{{datePrice.Sell | currency : $}}</td>
+              <td>{{datePrice.Low | currency : $}}</td>
+              <td>{{datePrice.Average | currency : $}}</td>
             </tr>
           </tbody>
         </table>
