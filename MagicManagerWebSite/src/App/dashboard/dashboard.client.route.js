@@ -5,6 +5,8 @@ angular.module(
     'magicManagerApp.templates',
     //load the controller for the overview dashboard
     'magicManagerApp.dashboard.overview.controller',
+    //load the controller for the watchlist dashboard
+    'magicManagerApp.dashboard.watchList.controller',
     //load the controller for the market dashboard
     'magicManagerApp.dashboard.market.controller',
     //load the controller for the stock dashboard
@@ -48,6 +50,22 @@ function dashboardRoute($stateProvider) {
           controller:'dashboardOverviewController',
           //the name of the controller object in the dashboard overview view
           controllerAs:'dashboardOverview'
+        }
+      )
+    .state(
+        //the dashboard overview state wich is a child of the dashboard state
+        'dashboard.watchlist',
+        {
+          //the url appended to the dashboard state url
+          url: '/watchlist', 
+          //the child state template from $templateCache
+          templateProvider: function($templateCache){
+            return $templateCache.get('dashboard/watchlist/watchlist.client.view.html');
+          },
+          //the controller for the dashboard overview
+          controller:'dashboardWatchListController',
+          //the name of the controller object in the dashboard overview view
+          controllerAs:'dashboardWatchList'
         }
       )
       .state(
