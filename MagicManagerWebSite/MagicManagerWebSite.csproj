@@ -58,14 +58,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -76,54 +68,44 @@
   </ItemGroup>
   <ItemGroup>
     <!-- gulpinject:map -->
-    <Content Include="App\App-9ec0706cf6.js.map"/>
-    <Content Include="Scripts\vendor-e4ff5c7872.js.map"/>
-    <Content Include="Content\app-ebe3951c56.css.map"/>
-    <Content Include="Content\vendor-020ee7a308.css.map"/>
+    <Content Include="App\App-9605a14ae3.js.map"/>
+    <Content Include="Scripts\vendor-0b014ec786.js.map"/>
+    <Content Include="Content\app-562e5e6371.css.map"/>
+    <Content Include="Content\vendor-cef012af61.css.map"/>
     <!-- endgulpinject -->
-    
     <!-- gulpinject:eot -->
     <Content Include="fonts\fontawesome-webfont.eot"/>
     <Content Include="fonts\glyphicons-halflings-regular.eot"/>
     <!-- endgulpinject -->
-    
     <!-- gulpinject:svg -->
     <Content Include="fonts\fontawesome-webfont.svg"/>
     <Content Include="fonts\glyphicons-halflings-regular.svg"/>
     <!-- endgulpinject -->
-    
     <!-- gulpinject:ttf -->
     <Content Include="fonts\fontawesome-webfont.ttf"/>
     <Content Include="fonts\glyphicons-halflings-regular.ttf"/>
     <!-- endgulpinject -->
-    
     <!-- gulpinject:woff -->
     <Content Include="fonts\fontawesome-webfont.woff"/>
     <Content Include="fonts\glyphicons-halflings-regular.woff"/>
     <!-- endgulpinject -->
-    
     <!-- gulpinject:woff2 -->
     <Content Include="fonts\fontawesome-webfont.woff2"/>
     <Content Include="fonts\glyphicons-halflings-regular.woff2"/>
     <!-- endgulpinject -->
-    
     <!-- gulpinject:css -->
-    <Content Include="Content\app-ebe3951c56.css"/>
-    <Content Include="Content\vendor-020ee7a308.css"/>
+    <Content Include="Content\app-562e5e6371.css"/>
+    <Content Include="Content\vendor-cef012af61.css"/>
     <Content Include="src\Content\style.css"/>
     <!-- endgulpinject -->
-    
     <!-- gulpinject:png -->
     <Content Include="Content\magicmanager.png"/>
     <Content Include="src\Content\magicmanager.png"/>
     <!-- endgulpinject -->
-    
     <!-- gulpinject:jpg -->
     <!-- endgulpinject -->
-    
     <!-- gulpinject:gif -->
     <!-- endgulpinject -->
-    
     <!-- gulpinject:html -->
     <Content Include="src\App\cardDetail\cardDetail.client.view.html"/>
     <Content Include="src\App\dashboard\dashboard.client.view.html"/>
@@ -137,7 +119,6 @@
     <Content Include="src\App\dashboard\stock\stock.client.view.html"/>
     <Content Include="src\index.html"/>
     <!-- endgulpinject -->
-    
     <!-- gulpinject:json -->
     <Content Include="mockApi\cardDetail\1.json"/>
     <Content Include="mockApi\keyvaluetablemodels\details.json"/>
@@ -166,11 +147,11 @@
     <Content Include="mockApi\dashboard\stock\details.json"/>
     <Content Include="mockApi\dashboard\stock\info.json"/>
     <!-- endgulpinject -->
-    
     <!-- gulpinject:js -->
-    <Content Include="App\App-9ec0706cf6.js"/>
-    <Content Include="Scripts\vendor-e4ff5c7872.js"/>
+    <Content Include="App\App-9605a14ae3.js"/>
+    <Content Include="Scripts\vendor-0b014ec786.js"/>
     <Content Include="src\App\app.js"/>
+    <Content Include="src\App\config.client.constant.js"/>
     <Content Include="src\App\route.client.config.js"/>
     <Content Include="src\App\cardDetail\cardDetail.client.controller.js"/>
     <Content Include="src\App\cardDetail\cardDetail.client.factory.js"/>
@@ -215,6 +196,24 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Desktop\MagicManagerData\MagicManager.DAL\MagicManager.DAL.csproj">
+      <Project>{d9313299-3c91-4f0f-8edd-2c59633775ad}</Project>
+      <Name>MagicManager.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Desktop\MagicManagerData\MagicManager.MkmRequests\MagicManager.MkmRequests.csproj">
+      <Project>{fba6d843-f8ef-49c2-8fb3-75a3fc5fdb28}</Project>
+      <Name>MagicManager.MkmRequests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Desktop\MagicManagerData\MagicManager.Model\MagicManager.Model.csproj">
+      <Project>{99bc77b8-a555-4fa4-afaa-90bbf40de857}</Project>
+      <Name>MagicManager.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Desktop\MagicManagerData\MagicManagerAPI\MagicManagerAPI.csproj">
+      <Project>{92ef59d6-d272-4d25-9468-809f8c581eb9}</Project>
+      <Name>MagicManagerAPI</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

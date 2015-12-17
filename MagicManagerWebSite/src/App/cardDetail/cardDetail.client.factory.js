@@ -10,7 +10,7 @@ angular.module(
     cardDetailFactory
    )
 
-function cardDetailFactory($http, $q) {
+function cardDetailFactory($http, $q, apiConfig) {
    //prepare the factory variable
     var factory = {};
     
@@ -28,14 +28,22 @@ function cardDetailFactory($http, $q) {
       var cardDetail = {};
       
       //call the api to get the card details data and send it to successCallback if no error is encountered
-      $http.get('/mockApi/cardDetail/'+articleId+'.json').then(successCallback, errorCallback);
+      
+	  $http.get(apiConfig.url + 'productDto/'+articleId).then(successCallback, errorCallback);
       
       function successCallback(response) {
+		  
+		  console.log(response.data);
+		  //backend adaptation
+		  response.data.ImageUrl='https://fr.magiccardmarket.eu' + response.data.ImageUrl.substr(1);
+		  response.data.ProductUrl  ='https://fr.magiccardmarket.eu' + response.data.ProductUrl;
         //assign the response data to the response object
         cardDetail = response.data;
         //set actual price from the response object
-        cardDetail.actualPrice = response.data.dailyPrices[0];
-        //resolve promise
+	  if (response.data.lastDp[0]){
+			cardDetail.actualPrice = response.data.lastDp[0];
+	  }
+		//resolve promise
         deferred.resolve(cardDetail);
       
       };
