@@ -92,6 +92,7 @@
                   </tr>
                 </thead>
                 <tbody>
+
                   <tr ng-repeat="productDetail in dashboardOutStock.stockDetails | filter : dashboardOutStock.filter | filter : dashboardOutStock.detailedFilter | orderBy : dashboardOutStock.order">
                     <td>{{productDetail.name}}</td>
                     <td>{{productDetail.sell | currency:"&euro;"}}</td>
