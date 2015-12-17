@@ -7,7 +7,14 @@
     </div>
     <h2>Détails du stock</h2>
     <div class="row">
-        <!--insert toolbar-->
+        <div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-search"></i>
+          </span>
+          <input type="text" class="form-control" placeholder="Rechercher..." ng-model="dashboardStock.filter">
+        </div>
+      </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
@@ -60,7 +67,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr ng-repeat="productDetail in dashboardStock.stockDetails | orderBy : dashboardStock.order">
+                  <tr ng-repeat="productDetail in dashboardStock.stockDetails | filter : dashboardStock.filter | orderBy : dashboardStock.order">
                     <td>{{productDetail.name}}</td>
                     <td>{{productDetail.absoluteDelta}}</td>
                     <td>{{productDetail.delta}}</td>
