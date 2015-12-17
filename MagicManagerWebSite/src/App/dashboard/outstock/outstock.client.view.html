@@ -16,16 +16,36 @@
               <table class="table table-striped">
                 <thead>
                    <tr>
-                     <th>Nom</th>
-                     <th>Sell</th>
-                     <th>Average</th>
-                     <th>Low</th>
-                     <th>Nombre</th>
+                     <th>
+                       Nom
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.order='name'"><i class="fa fa-caret-up"></i></button>
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.order='-name'"><i class="fa fa-caret-down"></i></button>
+                     </th>
+                     <th>
+                       Sell
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.order='sell'"><i class="fa fa-caret-up"></i></button>
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.order='-sell'"><i class="fa fa-caret-down"></i></button>
+                     </th>
+                     <th>
+                       Average
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.order='average'"><i class="fa fa-caret-up"></i></button>
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.order='-average'"><i class="fa fa-caret-down"></i></button>
+                     </th>
+                     <th>
+                       Low
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.order='low'"><i class="fa fa-caret-up"></i></button>
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.order='-low'"><i class="fa fa-caret-down"></i></button>
+                     </th>
+                     <th>
+                       Nombre
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.order='siteWideCount'"><i class="fa fa-caret-up"></i></button>
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.order='-siteWideCount'"><i class="fa fa-caret-down"></i></button>
+                     </th>
                      <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr ng-repeat="productDetail in dashboardOutStock.stockDetails | orderBy:'-absoluteDelta'">
+                  <tr ng-repeat="productDetail in dashboardOutStock.stockDetails | orderBy : dashboardOutStock.order">
                     <td>{{productDetail.name}}</td>
                     <td>{{productDetail.sell | currency:"&euro;"}}</td>
                     <td>{{productDetail.average | currency:"&euro;"}}</td>

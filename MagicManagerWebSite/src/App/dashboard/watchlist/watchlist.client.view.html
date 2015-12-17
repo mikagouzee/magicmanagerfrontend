@@ -16,19 +16,51 @@
               <table class="table table-striped">
                 <thead>
                    <tr>
-                     <th>Nom</th>
-                     <th>Ecart absolu prix/average</th>
-                     <th>Ecart prix/average</th>
-                     <th>Price</th>
-                     <th>Sell</th>
-                     <th>Average</th>
-                     <th>Low</th>
-                     <th>Nombre</th>
+                     <th>
+                       Nom
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='name'"><i class="fa fa-caret-up"></i></button>
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-name'"><i class="fa fa-caret-down"></i></button>
+                     </th>
+                     <th>
+                       Ecart absolu prix/average
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='absoluteDelta'"><i class="fa fa-caret-up"></i></button>
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-absoluteDelta'"><i class="fa fa-caret-down"></i></button>
+                     </th>
+                     <th>
+                       Ecart prix/average
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='delta'"><i class="fa fa-caret-up"></i></button>
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-delta'"><i class="fa fa-caret-down"></i></button>
+                     </th>
+                     <th>
+                       Price
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='price'"><i class="fa fa-caret-up"></i></button>
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-price'"><i class="fa fa-caret-down"></i></button>
+                     </th>
+                     <th>
+                       Sell
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='sell'"><i class="fa fa-caret-up"></i></button>
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-sell'"><i class="fa fa-caret-down"></i></button>
+                     </th>
+                     <th>
+                       Average
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='average'"><i class="fa fa-caret-up"></i></button>
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-average'"><i class="fa fa-caret-down"></i></button>
+                     </th>
+                     <th>
+                       Low
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='low'"><i class="fa fa-caret-up"></i></button>
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-low'"><i class="fa fa-caret-down"></i></button>
+                     </th>
+                     <th>
+                       Nombre
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='siteWideCount'"><i class="fa fa-caret-up"></i></button>
+                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-siteWideCount'"><i class="fa fa-caret-down"></i></button>
+                     </th>
                      <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr ng-repeat="productDetail in dashboardWatchList.stockDetails | orderBy:'-absoluteDelta'">
+                  <tr ng-repeat="productDetail in dashboardWatchList.stockDetails | orderBy : dashboardWatchList.order">
                     <td>{{productDetail.name}}</td>
                     <td>{{productDetail.absoluteDelta}}</td>
                     <td>{{productDetail.delta}}</td>
