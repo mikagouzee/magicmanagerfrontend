@@ -1,14 +1,14 @@
-// the controller for the stock dashboard
+// the controller for the out of stock dashboard
 angular.module(
-  'magicManagerApp.dashboard.stock.controller', 
+  'magicManagerApp.dashboard.watchList.controller', 
   [
     // call the factory giving the dashboard data
     'magicManagerApp.dashboard.factory'
   ]
 )
-  .controller('dashboardStockController',dashboardStockController)
+  .controller('dashboardWatchListController',dashboardWatchListController)
 
-function dashboardStockController (dashboardFactory) {
+function dashboardWatchListController (dashboardFactory) {
   //link the view Model to this
   var vm = this;
   
@@ -21,7 +21,7 @@ function dashboardStockController (dashboardFactory) {
   function init () {
     
     //get the dashboard data from the dashboard factory and send it to the setDashboard function
-    dashboardFactory.getDashboardData('stock','stock','fr_fr').then(setDashboard);
+    dashboardFactory.getDashboardData('watchlist','watchlist','fr_fr').then(setDashboard);
     
     function setDashboard(dashboardData){
       

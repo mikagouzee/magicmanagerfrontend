@@ -2,7 +2,7 @@
   {
     "title":"Marché",
     "dashboardName":"market",
-    "chartName":"marketoverview",
+    "chartName":"market",
     "stateTitle":"dashboard.market"
   },
   {
@@ -12,15 +12,21 @@
     "stateTitle":"dashboard.stock"
   },
   {
+    "title":"Watchlist",
+    "dashboardName":"watchlist",
+    "chartName":"watchlist",
+    "stateTitle":"dashboard.watchlist"
+  },
+  {
     "title":"Stock",
     "dashboardName":"stock",
-    "chartName":"stockoverview",
+    "chartName":"stock",
     "stateTitle":"dashboard.stock"
   },
   {
     "title":"Hors Stock",
     "dashboardName":"outstock",
-    "chartName":"outstockoverview",
+    "chartName":"outstock",
     "stateTitle":"dashboard.outstock"
   }
 ]

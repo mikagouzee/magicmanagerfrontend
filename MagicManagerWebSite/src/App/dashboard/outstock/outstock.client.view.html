@@ -7,7 +7,14 @@
     </div>
     <h2>Détails des produits hors stock</h2>
     <div class="row">
-        <!--insert toolbar-->
+      <div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-search"></i>
+          </span>
+          <input type="text" class="form-control" placeholder="Rechercher..." ng-model="dashboardOutStock.filter">
+        </div>
+      </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
@@ -16,16 +23,77 @@
               <table class="table table-striped">
                 <thead>
                    <tr>
-                     <th>Nom</th>
-                     <th>Sell</th>
-                     <th>Average</th>
-                     <th>Low</th>
-                     <th>Nombre</th>
+                     <th>
+                       Nom
+                       <div class="btn-group">
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.order='name'"><i class="fa fa-caret-up"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.order='-name'"><i class="fa fa-caret-down"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.search.nameInput=!dashboardOutStock.search.nameInput"><i class="fa fa-search"></i></button>
+                       </div>
+                       <div class="row" ng-show="dashboardOutStock.search.nameInput">
+                         <div class="col-xs-12">
+                           <input type="text" class="form-control" placeholder="Rechercher..." ng-model="dashboardOutStock.detailedFilter.name">
+                         </div>
+                       </div>
+                     </th>
+                     <th>
+                       Sell
+                       <div class="btn-group">
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.order='sell'"><i class="fa fa-caret-up"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.order='-sell'"><i class="fa fa-caret-down"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.search.sellInput=!dashboardOutStock.search.sellInput"><i class="fa fa-search"></i></button>
+                       </div>
+                       <div class="row" ng-show="dashboardOutStock.search.sellInput">
+                         <div class="col-xs-12">
+                           <input type="text" class="form-control" placeholder="Rechercher..." ng-model="dashboardOutStock.detailedFilter.sell">
+                         </div>
+                       </div>
+                     </th>
+                     <th>
+                       Average
+                       <div class="btn-group">
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.order='average'"><i class="fa fa-caret-up"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.order='-average'"><i class="fa fa-caret-down"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.search.averageInput=!dashboardOutStock.search.averageInput"><i class="fa fa-search"></i></button>
+                       </div>
+                       <div class="row" ng-show="dashboardOutStock.search.averageInput">
+                         <div class="col-xs-12">
+                           <input type="text" class="form-control" placeholder="Rechercher..." ng-model="dashboardOutStock.detailedFilter.average">
+                         </div>
+                       </div>
+                     </th>
+                     <th>
+                      siteWideCount
+                       <div class="btn-group">
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.order='low'"><i class="fa fa-caret-up"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.order='-low'"><i class="fa fa-caret-down"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.search.lowInput=!dashboardOutStock.search.lowInput"><i class="fa fa-search"></i></button>
+                       </div>
+                       <div class="row" ng-show="dashboardOutStock.search.lowInput">
+                         <div class="col-xs-12">
+                           <input type="text" class="form-control" placeholder="Rechercher..." ng-model="dashboardOutStock.detailedFilter.low">
+                         </div>
+                       </div>
+                     </th>
+                     <th>
+                       Nombre
+                       <div class="btn-group">
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.order='siteWideCount'"><i class="fa fa-caret-up"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.order='-siteWideCount'"><i class="fa fa-caret-down"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardOutStock.search.siteWideCountInput=!dashboardOutStock.search.siteWideCountInput"><i class="fa fa-search"></i></button>
+                       </div>
+                       <div class="row" ng-show="dashboardOutStock.search.siteWideCountInput">
+                         <div class="col-xs-12">
+                           <input type="text" class="form-control" placeholder="Rechercher..." ng-model="dashboardOutStock.detailedFilter.siteWideCount">
+                         </div>
+                       </div>
+                     </th>
                      <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr ng-repeat="productDetail in dashboardOutStock.stockDetails | orderBy:'-absoluteDelta'">
+
+                  <tr ng-repeat="productDetail in dashboardOutStock.stockDetails | filter : dashboardOutStock.filter | filter : dashboardOutStock.detailedFilter | orderBy : dashboardOutStock.order">
                     <td>{{productDetail.name}}</td>
                     <td>{{productDetail.sell | currency:"&euro;"}}</td>
                     <td>{{productDetail.average | currency:"&euro;"}}</td>
