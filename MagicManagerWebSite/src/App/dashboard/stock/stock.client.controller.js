@@ -12,6 +12,9 @@ function dashboardStockController (dashboardFactory) {
   //link the view Model to this
   var vm = this;
   
+  //set default ordering
+  vm.order = '-absoluteDelta';
+  
   //launch the function to init values
   init();
   

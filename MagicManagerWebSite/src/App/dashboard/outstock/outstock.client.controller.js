@@ -11,6 +11,7 @@ angular.module(
 function dashboardOutStockController (dashboardFactory) {
   //link the view Model to this
   var vm = this;
+  vm.order = '-absoluteDelta';
   
   //launch the function to init values
   init();
