@@ -7,7 +7,14 @@
     </div>
     <h2>Détails des produits hors stock</h2>
     <div class="row">
-        <!--insert toolbar-->
+      <div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-search"></i>
+          </span>
+          <input type="text" class="form-control" placeholder="Rechercher..." ng-model="dashboardOutStock.filter">
+        </div>
+      </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
@@ -45,7 +52,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr ng-repeat="productDetail in dashboardOutStock.stockDetails | orderBy : dashboardOutStock.order">
+                  <tr ng-repeat="productDetail in dashboardOutStock.stockDetails | filter : dashboardOutStock.filter | orderBy : dashboardOutStock.order">
                     <td>{{productDetail.name}}</td>
                     <td>{{productDetail.sell | currency:"&euro;"}}</td>
                     <td>{{productDetail.average | currency:"&euro;"}}</td>
