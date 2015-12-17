@@ -12,6 +12,12 @@
     "stateTitle":"dashboard.stock"
   },
   {
+    "title":"Watchlist",
+    "dashboardName":"watchlist",
+    "chartName":"watchlistoverview",
+    "stateTitle":"dashboard.watchlist"
+  },
+  {
     "title":"Stock",
     "dashboardName":"stock",
     "chartName":"stockoverview",
