@@ -41,7 +41,7 @@
     "bootstrap": {
       "main": [
         "dist/css/bootstrap.css",
-        "assets/javascripts/bootstrap.js",
+        "dist/js/bootstrap.js",
         "dist/fonts/**/*"
       ]
     },
