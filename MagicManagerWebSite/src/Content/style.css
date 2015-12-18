@@ -77,3 +77,15 @@ body {
 .secondary-title {
   font-weight: bold;
 }
+
+/*
+ * table header aligns top
+*/
+
+.table > thead > tr > th {
+    vertical-align: top !important;
+}
+
+.table > thead > tr > th > .row {
+    margin-top:5px;
+}

@@ -25,49 +25,113 @@
                    <tr>
                      <th>
                        Nom
-                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='name'"><i class="fa fa-caret-up"></i></button>
-                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-name'"><i class="fa fa-caret-down"></i></button>
+                       <div class="btn-group">
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='name'"><i class="fa fa-caret-up"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-name'"><i class="fa fa-caret-down"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.search.nameInput=!dashboardWatchList.search.nameInput"><i class="fa fa-search"></i></button>
+                       </div>
+                       <div class="row" ng-show="dashboardWatchList.search.nameInput">
+                         <div class="col-xs-12">
+                           <input type="text" class="form-control" placeholder="Rechercher..." ng-model="dashboardWatchList.detailedFilter.name">
+                         </div>
+                       </div>
                      </th>
                      <th>
                        Ecart absolu prix/average
-                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='absoluteDelta'"><i class="fa fa-caret-up"></i></button>
-                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-absoluteDelta'"><i class="fa fa-caret-down"></i></button>
+                       <div class="btn-group">
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='absoluteDelta'"><i class="fa fa-caret-up"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-absoluteDelta'"><i class="fa fa-caret-down"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.search.absoluteDeltaInput=!dashboardWatchList.search.absoluteDeltaInput"><i class="fa fa-search"></i></button>
+                       </div>
+                       <div class="row" ng-show="dashboardWatchList.search.absoluteDeltaInput">
+                         <div class="col-xs-12">
+                           <input type="text" class="form-control" placeholder="Rechercher..." ng-model="dashboardWatchList.detailedFilter.absoluteDelta">
+                         </div>
+                       </div>
                      </th>
                      <th>
                        Ecart prix/average
-                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='delta'"><i class="fa fa-caret-up"></i></button>
-                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-delta'"><i class="fa fa-caret-down"></i></button>
+                       <div class="btn-group">
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='delta'"><i class="fa fa-caret-up"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-delta'"><i class="fa fa-caret-down"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.search.deltaInput=!dashboardWatchList.search.deltaInput"><i class="fa fa-search"></i></button>
+                       </div>
+                       <div class="row" ng-show="dashboardWatchList.search.deltaInput">
+                         <div class="col-xs-12">
+                           <input type="text" class="form-control" placeholder="Rechercher..." ng-model="dashboardWatchList.detailedFilter.delta">
+                         </div>
+                       </div>
                      </th>
                      <th>
                        Price
-                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='price'"><i class="fa fa-caret-up"></i></button>
-                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-price'"><i class="fa fa-caret-down"></i></button>
+                       <div class="btn-group">
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='price'"><i class="fa fa-caret-up"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-price'"><i class="fa fa-caret-down"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.search.priceInput=!dashboardWatchList.search.priceInput"><i class="fa fa-search"></i></button>
+                       </div>
+                       <div class="row" ng-show="dashboardWatchList.search.priceInput">
+                         <div class="col-xs-12">
+                           <input type="text" class="form-control" placeholder="Rechercher..." ng-model="dashboardWatchList.detailedFilter.price">
+                         </div>
+                       </div>
                      </th>
                      <th>
                        Sell
-                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='sell'"><i class="fa fa-caret-up"></i></button>
-                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-sell'"><i class="fa fa-caret-down"></i></button>
+                       <div class="btn-group">
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='sell'"><i class="fa fa-caret-up"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-sell'"><i class="fa fa-caret-down"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.search.sellInput=!dashboardWatchList.search.sellInput"><i class="fa fa-search"></i></button>
+                       </div>
+                       <div class="row" ng-show="dashboardWatchList.search.sellInput">
+                         <div class="col-xs-12">
+                           <input type="text" class="form-control" placeholder="Rechercher..." ng-model="dashboardWatchList.detailedFilter.sell">
+                         </div>
+                       </div>
                      </th>
                      <th>
                        Average
-                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='average'"><i class="fa fa-caret-up"></i></button>
-                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-average'"><i class="fa fa-caret-down"></i></button>
+                       <div class="btn-group">
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='average'"><i class="fa fa-caret-up"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-average'"><i class="fa fa-caret-down"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.search.averageInput=!dashboardWatchList.search.averageInput"><i class="fa fa-search"></i></button>
+                       </div>
+                       <div class="row" ng-show="dashboardWatchList.search.averageInput">
+                         <div class="col-xs-12">
+                           <input type="text" class="form-control" placeholder="Rechercher..." ng-model="dashboardWatchList.detailedFilter.average">
+                         </div>
+                       </div>
                      </th>
                      <th>
                        Low
-                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='low'"><i class="fa fa-caret-up"></i></button>
-                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-low'"><i class="fa fa-caret-down"></i></button>
+                       <div class="btn-group">
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='low'"><i class="fa fa-caret-up"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-low'"><i class="fa fa-caret-down"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.search.lowInput=!dashboardWatchList.search.lowInput"><i class="fa fa-search"></i></button>
+                       </div>
+                       <div class="row" ng-show="dashboardWatchList.search.lowInput">
+                         <div class="col-xs-12">
+                           <input type="text" class="form-control" placeholder="Rechercher..." ng-model="dashboardWatchList.detailedFilter.low">
+                         </div>
+                       </div>
                      </th>
                      <th>
                        Nombre
-                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='siteWideCount'"><i class="fa fa-caret-up"></i></button>
-                       <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-siteWideCount'"><i class="fa fa-caret-down"></i></button>
+                       <div class="btn-group">
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='siteWideCount'"><i class="fa fa-caret-up"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.order='-siteWideCount'"><i class="fa fa-caret-down"></i></button>
+                         <button class="btn btn-primary btn-xs" ng-click="dashboardWatchList.search.siteWideCountInput=!dashboardWatchList.search.siteWideCountInput"><i class="fa fa-search"></i></button>
+                       </div>
+                       <div class="row" ng-show="dashboardWatchList.search.siteWideCountInput">
+                         <div class="col-xs-12">
+                           <input type="text" class="form-control" placeholder="Rechercher..." ng-model="dashboardWatchList.detailedFilter.siteWideCount">
+                         </div>
+                       </div>
                      </th>
                      <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr ng-repeat="productDetail in dashboardWatchList.stockDetails | filter : dashboardWatchList.filter | orderBy : dashboardWatchList.order">
+                  <tr ng-repeat="productDetail in dashboardWatchList.stockDetails | filter : dashboardWatchList.filter | filter : dashboardWatchList.detailedFilter | orderBy : dashboardWatchList.order">
                     <td>{{productDetail.name}}</td>
                     <td>{{productDetail.absoluteDelta}}</td>
                     <td>{{productDetail.delta}}</td>
