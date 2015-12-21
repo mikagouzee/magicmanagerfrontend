@@ -1,70 +1,104 @@
 <div class="container-fluid">
-    <h1>Vue {{dashboardDetail.definition.name}}</h1>
-    <div class="row">
-        <div class="col-xs-12">
-          <nvd3 options="dashboardDetail.chart.options" data="dashboardDetail.chart.data" ng-class="dashboardDetail.chart.class"></nvd3>
-        </div>
+  <h1>Vue {{dashboardDetail.definition.name}}</h1>
+  <div class="row">
+    <div class="col-xs-12">
+      <nvd3 options="dashboardDetail.chart.options" data="dashboardDetail.chart.data" ng-class="dashboardDetail.chart.class"></nvd3>
     </div>
-    <h2>Détails {{dashboardDetail.definition.name}}</h2>
-    <div class="row">
-        <div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4">
-        <div class="input-group">
-          <span class="input-group-addon">
+  </div>
+  <h2>Détails {{dashboardDetail.definition.name}}</h2>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="input-group">
+            <span class="input-group-addon">
             <i class="fa fa-search"></i>
           </span>
-          <input type="text" class="form-control" placeholder="Rechercher..." ng-model="dashboardDetail.filter">
+            <input type="text" class="form-control" placeholder="Rechercher..." ng-model="dashboardDetail.filter">
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <a class="btn btn-primary" ng-class="{active:dashboardDetail.showSearch}" ng-click="dashboardDetail.showSearch=!dashboardDetail.showSearch"><i class="fa fa-filter"></i> Filtrer</a>
         </div>
       </div>
     </div>
-    <div class="row">
-        <div class="col-xs-12" >
-            <!--Add ui grid-->
-            <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
-                   <tr>
-                     <th ng-repeat="column in dashboardDetail.definition.columns">
-                       {{column.label}}
-                       <div class="btn-group">
-                         <button class="btn btn-primary btn-xs" ng-click="dashboardDetail.order=column.key"><i class="fa fa-caret-up"></i></button>
-                         <button class="btn btn-primary btn-xs" ng-click="dashboardDetail.order='-' + column.key"><i class="fa fa-caret-down"></i></button>
-                         <button class="btn btn-primary btn-xs" ng-click="column.showSearch=!column.showSearch"><i class="fa fa-search"></i></button>
-                       </div>
-                       <div class="row" ng-show="column.showSearch">
-                         <div class="col-xs-12">
-                           <input type="text" class="form-control" placeholder="Rechercher..." ng-model="dashboardDetail.detailedFilter[column.key]">
-                         </div>
-                       </div>
-                     </th>
-                     <th>
-                       Action
-                     </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="productDetail in dashboardDetail.marketDetails | filter : dashboardDetail.filter | filter : dashboardDetail.detailedFilter | orderBy : dashboardDetail.order">
-                    <td ng-repeat="column in dashboardDetail.definition.columns">
-                      <span ng-if="column.type !== 'currency' && column.type !== 'percentage'">
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <!--Add ui grid-->
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr ng-show="!dashboardDetail.showSearch">
+              <th ng-repeat="column in dashboardDetail.definition.columns">
+                {{column.label}}
+                <div class="btn-group pull-right">
+                  <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i ng-if="dashboardDetail.order !== column.key && dashboardDetail.order !== '-' + column.key" class="fa fa-sort"></i>
+                    <i ng-if="dashboardDetail.order === column.key" class="fa fa-caret-up"></i>
+                    <i ng-if="dashboardDetail.order === '-' + column.key" class="fa fa-caret-down"></i>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a ng-click="dashboardDetail.order=column.key"><i class="fa fa-caret-up"></i> Ordre asc.</a></li>
+                    <li><a ng-click="dashboardDetail.order='-' + column.key"><i class="fa fa-caret-down"></i> Ordre desc.</a></li>
+                  </ul>
+                </div>
+
+
+              </th>
+              <th>
+                Action
+              </th>
+            </tr>
+            <tr ng-show="dashboardDetail.showSearch">
+              <th ng-repeat="column in dashboardDetail.definition.columns">
+                <div class="input-group" width=50%>
+                  <input type="text" class="form-control" placeholder="{{column.label}}" ng-model="dashboardDetail.detailedFilter[column.key]">
+                  <div class="input-group-btn">
+                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i ng-if="dashboardDetail.order !== column.key && dashboardDetail.order !== '-' + column.key" class="fa fa-sort"></i>
+                    <i ng-if="dashboardDetail.order === column.key" class="fa fa-caret-up"></i>
+                    <i ng-if="dashboardDetail.order === '-' + column.key" class="fa fa-caret-down"></i>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a ng-click="dashboardDetail.order=column.key"><i class="fa fa-caret-up"></i> Ordre asc.</a></li>
+                    <li><a ng-click="dashboardDetail.order='-' + column.key"><i class="fa fa-caret-down"></i> Ordre desc.</a></li>
+                  </ul>
+                    <a class="btn btn-default" ng-click="dashboardDetail.detailedFilter[column.key]=''">
+                      <i class="fa fa-times"></i>
+                    </a>
+                  </div>
+                </div>
+              </th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="productDetail in dashboardDetail.marketDetails | filter : dashboardDetail.filter | filter : dashboardDetail.detailedFilter | orderBy : dashboardDetail.order">
+              <td ng-repeat="column in dashboardDetail.definition.columns">
+                <span ng-if="column.type !== 'currency' && column.type !== 'percentage'">
                         {{productDetail[column.key]}}
                       </span>
-                      <span ng-if="column.type === 'currency'">
+                <span ng-if="column.type === 'currency'">
                         {{productDetail[column.key] | currency:"&euro;"}}
                       </span>
-                      <span ng-if="column.type === 'percentage'">
+                <span ng-if="column.type === 'percentage'">
                         {{productDetail[column.key]*100 | number:2}} %
                       </span>
-                    </td>
-                    <td>
-                      <a ui-sref="cardDetail({articleId:productDetail.id})" class="btn btn-success">
-                        <i class="fa fa-play"></i>
-                        <span class="hidden-xs">
+              </td>
+              <td>
+                <a ui-sref="cardDetail({articleId:productDetail.id})" class="btn btn-success center-block">
+                  <i class="fa fa-play"></i>
+                  <span class="hidden-xs">
                           Voir le détail de la carte
                         </span>
-                      </a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-        </div>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
 </div>

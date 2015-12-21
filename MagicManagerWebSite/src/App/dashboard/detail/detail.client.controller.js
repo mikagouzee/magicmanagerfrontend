@@ -21,6 +21,7 @@ function dashboardDetailController (dashboardFactory,$stateParams) {
     dashboardFactory.getDashboardData($stateParams.dashboard,$stateParams.dashboard,'fr_fr').then(setDashboard);
     
     function setDashboard(dashboardData){
+      //assign the response definition property to the definition property of the view Model
       vm.definition = dashboardData.definition;
       // assign the response detail property to the marketDetails property of the view Model
       vm.marketDetails = dashboardData.details;
