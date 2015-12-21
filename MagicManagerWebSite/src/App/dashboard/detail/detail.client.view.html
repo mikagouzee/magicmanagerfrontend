@@ -78,13 +78,13 @@
             <tr ng-repeat="productDetail in dashboardDetail.marketDetails | filter : dashboardDetail.filter | filter : dashboardDetail.detailedFilter | orderBy : dashboardDetail.order">
               <td ng-repeat="column in dashboardDetail.definition.columns">
                 <span ng-if="column.type !== 'currency' && column.type !== 'percentage'">
-                        {{productDetail[column.key]}}
+                        {{dashboardDetail.parseTable(column.key,productDetail)}}
                       </span>
                 <span ng-if="column.type === 'currency'">
-                        {{productDetail[column.key] | currency:"&euro;"}}
+                        {{dashboardDetail.parseTable(column.key,productDetail) | currency:"&euro;"}}
                       </span>
                 <span ng-if="column.type === 'percentage'">
-                        {{productDetail[column.key]*100 | number:2}} %
+                        {{dashboardDetail.parseTable(column.key,productDetail)*100 | number:2}} %
                       </span>
               </td>
               <td>

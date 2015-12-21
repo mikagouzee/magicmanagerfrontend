@@ -8,10 +8,12 @@ angular.module(
 )
   .controller('dashboardDetailController',dashboardDetailController)
 
-function dashboardDetailController (dashboardFactory,$stateParams) {
+function dashboardDetailController (dashboardFactory,$stateParams,$parse) {
   //link the view Model to this
   var vm = this;
   
+  vm.parseTable = parseTable
+
   //launch the function to init values
   init();
   
@@ -29,5 +31,11 @@ function dashboardDetailController (dashboardFactory,$stateParams) {
       vm.chart = dashboardData.chart;
     };
     
+  }
+
+  function parseTable (key,source) {
+    var parser = $parse(key);
+    var value = parser(source);
+    return value;
   }
 }
