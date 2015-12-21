@@ -1,0 +1,30 @@
+{
+	"name":"marché",
+	"dashboardInfoApi":"/mockApi/dashboard/market/info.json",
+	"dashboardDetailsApi":"/mockApi/dashboard/market/details.json",
+	"columns":[
+		{
+			"label":"Nom",
+			"key":"name"
+		},
+		{
+			"label":"Sell",
+			"key":"sell",
+			"type":"currency"
+		},
+		{
+			"label":"Average",
+			"key":"average",
+			"type":"currency"
+		},
+		{
+			"label":"Low",
+			"key":"low",
+			"type":"currency"
+		},
+		{
+			"label":"Nombre",
+			"key":"siteWideCount"
+		}
+	]
+}

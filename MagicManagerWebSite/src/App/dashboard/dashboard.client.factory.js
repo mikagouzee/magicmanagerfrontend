@@ -31,34 +31,45 @@ function dashboardFactory (chartsFactory,$q,$http) {
     
     //prepare the returned object
     var dashboardData = {};
+    var definition = {};
+    $http.get('/mockApi/dashboard/'+dashboardName+'/definition.json').then(successCallback, errorCallback);
+
+    function successCallback (definition) {
+      definition = definition.data;
+    console.log(definition.dashboardDetailsApi)
+      // call the detail promise from this factory;
+      var detailsPromise = getDetails(definition.dashboardDetailsApi);
+      // call the chart promise from this factory;
+      var chartPromise = getChart(dashboardName,definition.dashboardInfoApi,chartName,localeCode);
+      //create an array of promises
+      var promises = [detailsPromise,chartPromise];
     
-    // call the detail promise from this factory;
-    var detailsPromise = getDetails(dashboardName);
-    // call the chart promise from this factory;
-    var chartPromise = getChart(dashboardName,chartName,localeCode);
-    //create an array of promises
-    var promises = [detailsPromise,chartPromise];
-    
-     //use $q to call all the promises in parralel and handle the values in the then function
-    $q.all(promises).then(function(values){
+       //use $q to call all the promises in parralel and handle the values in the then function
+      $q.all(promises).then(function(values){
+        dashboardData.definition = definition;
+        //assign the result of the detailspromise to the dashboardData details property
+        dashboardData.details = values[0];
+        //assign the result of the chartpromise to the dashboardData chart property
+        dashboardData.chart = values[1];
       
-      //assign the result of the detailspromise to the dashboardData details property
-      dashboardData.details = values[0];
-      //assign the result of the chartpromise to the dashboardData chart property
-      dashboardData.chart = values[1];
+        //resolve the promise
+        deferred.resolve(dashboardData);
       
-      //resolve the promise
-      deferred.resolve(dashboardData);
-      
-    });
-    
+      });
+    };
+
+    function errorCallback (err){
+      console.log(err);
+      deferred.reject(false)
+    }
     //return the promise
     return deferred.promise;
     
+
   };
   
   // the function to get the dashboard details
-  function getDetails (dashboardName) {
+  function getDetails (dashboardDetailsApi) {
     
     //prepare a promise
     var deferred = $q.defer();
@@ -66,7 +77,7 @@ function dashboardFactory (chartsFactory,$q,$http) {
     //prepare the returned array
     var dashboardDetails =[];
     //call the api to get the array of dashboard details (cards) and send it to successCallback if no error is encountered
-    $http.get('/mockApi/dashboard/'+dashboardName+'/details.json').then(successCallback, errorCallback);
+    $http.get(dashboardDetailsApi).then(successCallback, errorCallback);
     
     function successCallback (details) {
       //assign the data from the details api call to dashboardDetails
@@ -87,7 +98,7 @@ function dashboardFactory (chartsFactory,$q,$http) {
   };
   
   // the function to get the chart formated data
-  function getChart(dashboardName,chartName,localeCode,title,stateLink) {
+  function getChart(dashboardName,dashboardInfoApi,chartName,localeCode,title,stateLink) {
     
     //prepare a promise
     var deferred = $q.defer();
@@ -96,7 +107,7 @@ function dashboardFactory (chartsFactory,$q,$http) {
     var chart = {};
     
     // call the getInfo function from this factory and send the result to the generateChart function
-    getInfo(dashboardName).then(generateChart);
+    getInfo(dashboardInfoApi).then(generateChart);
     
     
     function generateChart(info){
@@ -110,10 +121,10 @@ function dashboardFactory (chartsFactory,$q,$http) {
     function setChart(chartData){
       //assign the received chart data
       chart = chartData;
+      //add the dashboardName
+      chart.dashboardName = dashboardName;
       //add the title
       chart.title = title;
-      //add the linked state
-      chart.stateLink = stateLink;
       //resolve the promise
       deferred.resolve(chart);
       
@@ -124,7 +135,7 @@ function dashboardFactory (chartsFactory,$q,$http) {
   };
   
   // the function to get the dashboard global info (totals)
-  function getInfo (dashboardName) {
+  function getInfo (dashboardInfoApi) {
     //prepare a promise
     var deferred = $q.defer();
     
@@ -132,7 +143,7 @@ function dashboardFactory (chartsFactory,$q,$http) {
     var dashboardInfo = [];
     
     //call the dashboard info api and send the result to succes if no error was encountered
-    $http.get('/mockApi/dashboard/'+dashboardName+'/info.json').then(successCallback, errorCallback);
+    $http.get(dashboardInfoApi).then(successCallback, errorCallback);
     
     function successCallback (info) {
       //assign the data from the response to the returned array

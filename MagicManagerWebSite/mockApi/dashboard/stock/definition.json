@@ -1,0 +1,40 @@
+{
+	"name":"stock",
+	"dashboardInfoApi":"/mockApi/dashboard/stock/info.json",
+	"dashboardDetailsApi":"/mockApi/dashboard/stock/details.json",
+	"columns":[
+		{
+			"label":"Nom",
+			"key":"name"
+		},
+		{
+			"label":"Ecart absolu prix/average",
+			"key":"absoluteDelta",
+			"type":"percentage"
+		},
+		{
+			"label":"Ecart prix/average",
+			"key":"delta",
+			"type":"percentage"
+		},
+		{
+			"label":"Sell",
+			"key":"sell",
+			"type":"currency"
+		},
+		{
+			"label":"Average",
+			"key":"average",
+			"type":"currency"
+		},
+		{
+			"label":"Low",
+			"key":"low",
+			"type":"currency"
+		},
+		{
+			"label":"Nombre",
+			"key":"siteWideCount"
+		}
+	]
+}

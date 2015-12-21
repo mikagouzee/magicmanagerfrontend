@@ -5,14 +5,8 @@ angular.module(
     'magicManagerApp.templates',
     //load the controller for the overview dashboard
     'magicManagerApp.dashboard.overview.controller',
-    //load the controller for the watchlist dashboard
-    'magicManagerApp.dashboard.watchList.controller',
-    //load the controller for the market dashboard
-    'magicManagerApp.dashboard.market.controller',
-    //load the controller for the stock dashboard
-    'magicManagerApp.dashboard.stock.controller',
-    //load the controller for the out of stock dashboard
-    'magicManagerApp.dashboard.outstock.controller',
+    //load the controller for the dashboard details
+    'magicManagerApp.dashboard.detail.controller',
     //load ui-router
     //The de-facto solution to flexible routing with nested views in AngularJS
     //https://github.com/angular-ui/ui-router/
@@ -52,70 +46,6 @@ function dashboardRoute($stateProvider) {
           controllerAs:'dashboardOverview'
         }
       )
-    .state(
-        //the dashboard overview state wich is a child of the dashboard state
-        'dashboard.watchlist',
-        {
-          //the url appended to the dashboard state url
-          url: '/watchlist', 
-          //the child state template from $templateCache
-          templateProvider: function($templateCache){
-            return $templateCache.get('dashboard/watchlist/watchlist.client.view.html');
-          },
-          //the controller for the dashboard overview
-          controller:'dashboardWatchListController',
-          //the name of the controller object in the dashboard overview view
-          controllerAs:'dashboardWatchList'
-        }
-      )
-      .state(
-        //the dashboard market state wich is a child of the dashboard state
-        'dashboard.market',
-        {
-          //the url appended to the dashboard state url
-          url: '/market', 
-          //the child state template from $templateCache
-          templateProvider: function($templateCache){
-            return $templateCache.get('dashboard/market/market.client.view.html');
-          },
-          //the controller for the market dashboard
-          controller:'dashboardMarketController',
-          //the name of the controller object in the market dashboard view
-          controllerAs:'dashboardMarket'
-        }
-      )
-      .state(
-         //the dashboard stock state wich is a child of the dashboard state
-        'dashboard.stock',
-        { 
-          //the url appended to the dashboard state url
-          url: '/stock', 
-          //the child state template from $templateCache
-          templateProvider: function($templateCache){
-            return $templateCache.get('dashboard/stock/stock.client.view.html');
-          },
-           //the controller for the stock dashboard
-          controller:'dashboardStockController',
-           //the name of the controller object in the stock dashboard view
-          controllerAs:'dashboardStock'
-        }
-      )
-      .state(
-        //the dashboard out of stock state wich is a child of the dashboard state
-        'dashboard.outstock',
-        {
-          //the url appended to the dashboard state url
-          url: '/out-of-stock', 
-          //the child state template from $templateCache
-          templateProvider: function($templateCache){
-            return $templateCache.get('dashboard/outstock/outstock.client.view.html');
-          },
-          //the controller for the out of stock dashboard
-          controller:'dashboardOutStockController',
-          //the name of the controller object in the out of stock dashboard view
-          controllerAs:'dashboardOutStock'
-        }
-      )
       .state(
          //the dashboard export state wich is a child of the dashboard state
         'dashboard.export',
@@ -126,6 +56,22 @@ function dashboardRoute($stateProvider) {
           templateProvider: function($templateCache){
             return $templateCache.get('dashboard/export/export.client.view.html');
           }
+        }
+      )
+      .state(
+        //the dashboard market state wich is a child of the dashboard state
+        'dashboard.detail',
+        {
+          //the url appended to the dashboard state url
+          url: '/:dashboard', 
+          //the child state template from $templateCache
+          templateProvider: function($templateCache){
+            return $templateCache.get('dashboard/detail/detail.client.view.html');
+          },
+          //the controller for the market dashboard
+          controller:'dashboardDetailController',
+          //the name of the controller object in the market dashboard view
+          controllerAs:'dashboardDetail'
         }
       )
 

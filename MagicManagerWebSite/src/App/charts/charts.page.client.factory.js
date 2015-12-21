@@ -1,4 +1,4 @@
-//the factory to generate a array of charts
+ //the factory to generate a array of charts
 angular.module(
   'magicManagerApp.charts.page.factory',
   [
@@ -41,7 +41,7 @@ function chartsPageFactory (dashboardFactory,$q,$http) {
         var chartInfo = chartsInfo[chartId];
         
         //create a promise to get chart data from the dashboard factory
-        var promise = dashboardFactory.getChart(chartInfo.dashboardName,chartInfo.chartName,localeCode,chartInfo.title,chartInfo.stateTitle,chartInfo.parentClass);
+        var promise = dashboardFactory.getChart(chartInfo.dashboardName,chartInfo.dashboardInfoApi,chartInfo.chartName,localeCode,chartInfo.title,chartInfo.stateTitle,chartInfo.parentClass);
         
         //push the promise to the promise array
         promises.push(promise);

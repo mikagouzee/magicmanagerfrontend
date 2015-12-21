@@ -2,31 +2,31 @@
   {
     "title":"Marché",
     "dashboardName":"market",
-    "chartName":"market",
-    "stateTitle":"dashboard.market"
+    "dashboardInfoApi":"/mockApi/dashboard/market/info.json",
+    "chartName":"market"
   },
   {
     "title":"Différence prix/average",
     "dashboardName":"stock",
-    "chartName":"deltaoverview",
-    "stateTitle":"dashboard.stock"
+    "dashboardInfoApi":"/mockApi/dashboard/stock/info.json",
+    "chartName":"deltaoverview"
   },
   {
     "title":"Watchlist",
     "dashboardName":"watchlist",
-    "chartName":"watchlist",
-    "stateTitle":"dashboard.watchlist"
+    "dashboardInfoApi":"/mockApi/dashboard/watchlist/info.json",
+    "chartName":"watchlist"
   },
   {
     "title":"Stock",
     "dashboardName":"stock",
-    "chartName":"stock",
-    "stateTitle":"dashboard.stock"
+    "dashboardInfoApi":"/mockApi/dashboard/stock/info.json",
+    "chartName":"stock"
   },
   {
     "title":"Hors Stock",
     "dashboardName":"outstock",
-    "chartName":"outstock",
-    "stateTitle":"dashboard.outstock"
+    "dashboardInfoApi":"/mockApi/dashboard/outstock/info.json",
+    "chartName":"outstock"
   }
 ]

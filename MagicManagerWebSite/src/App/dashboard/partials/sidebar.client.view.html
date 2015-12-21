@@ -3,16 +3,16 @@
         <a ui-sref="dashboard.overview">Vue d'ensemble</a>
     </li>
     <li ui-sref-active="active">
-        <a ui-sref="dashboard.watchlist">Vue Watchlist</a>
+        <a ui-sref="dashboard.detail({ dashboard: 'watchlist' })">Vue Watchlist</a>
     </li>
     <li ui-sref-active="active">
-        <a ui-sref="dashboard.market">Vue Marché</a>
+        <a ui-sref="dashboard.detail({ dashboard: 'market' })">Vue Marché</a>
     </li>
     <li ui-sref-active="active">
-        <a ui-sref="dashboard.stock">Vue Stock</a>
+        <a ui-sref="dashboard.detail({ dashboard: 'stock' })">Vue Stock</a>
     </li>
     <li ui-sref-active="active">
-        <a ui-sref="dashboard.outstock">Vue Hors Stock</a>
+        <a ui-sref="dashboard.detail({ dashboard: 'outstock' })">Vue Hors Stock</a>
     </li>
     <li ui-sref-active="active">
         <a ui-sref="dashboard.export">Export</a>
