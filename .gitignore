@@ -204,3 +204,5 @@ MagicManagerWebSite/fonts
 MagicManagerWebSite/index.html
 MagicManagerWebSite/MagicManagerWebSite.csproj
 config/config.json
+*.sublime-project
+*.sublime-workspace
